@@ -34,24 +34,36 @@
       "repo": "opsdevcode/overpass",
       "profile": "product",
       "enforcement_state": "pending",
+      "adopted_controls": [
+        "ruleset_or_branch_protection",
+        "required_checks"
+      ],
       "exceptions": [
-        "no_ruleset_yet"
+        "solo_zero_approvals"
       ]
     },
     {
       "repo": "opsdevcode/toll",
       "profile": "product",
       "enforcement_state": "pending",
+      "adopted_controls": [
+        "ruleset_or_branch_protection",
+        "required_checks"
+      ],
       "exceptions": [
-        "no_ruleset_yet"
+        "solo_zero_approvals"
       ]
     },
     {
       "repo": "opsdevcode/dispatch",
       "profile": "product",
       "enforcement_state": "pending",
+      "adopted_controls": [
+        "ruleset_or_branch_protection",
+        "required_checks"
+      ],
       "exceptions": [
-        "no_ruleset_yet"
+        "solo_zero_approvals"
       ]
     },
     {
@@ -67,8 +79,12 @@
       "repo": "opsdevcode/repave-aws-infra",
       "profile": "infra",
       "enforcement_state": "pending",
+      "adopted_controls": [
+        "ruleset_or_branch_protection"
+      ],
       "exceptions": [
-        "no_ruleset_yet",
+        "solo_zero_approvals",
+        "required_checks_blocked_path_filter",
         "arc_cluster_admin_debt"
       ]
     },
