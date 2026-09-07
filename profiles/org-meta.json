@@ -8,12 +8,12 @@
   "conversation_resolution": true,
   "force_push_allowed": false,
   "branch_deletion_allowed": false,
-  "required_checks": "none",
+  "required_checks": "any",
   "secret_scanning": true,
   "push_protection": true,
   "dependabot_alerts": true,
   "workflow_permissions": "contents:read",
   "release_model": "none",
   "deploy_owner": "none",
-  "notes": "Required CI optional until this repo is protected in a later slice."
+  "notes": "Protect main with ruleset; require the validate workflow."
 }

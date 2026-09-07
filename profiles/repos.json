@@ -60,45 +60,42 @@
       "profile": "product",
       "enforcement_state": "adopted",
       "exceptions": [
-        "user_review_bypass"
+        "solo_zero_approvals"
       ],
       "visibility_semantics": "internal-runtime"
     },
     {
       "repo": "opsdevcode/repave-aws-infra",
       "profile": "infra",
-      "enforcement_state": "pending",
-      "adopted_controls": [
-        "ruleset_or_branch_protection"
-      ],
+      "enforcement_state": "adopted",
       "exceptions": [
         "solo_zero_approvals",
-        "required_checks_blocked_path_filter",
         "arc_cluster_admin_debt"
       ]
     },
     {
       "repo": "opsdevcode/opdevcode-website",
       "profile": "web",
-      "enforcement_state": "pending",
+      "enforcement_state": "adopted",
       "exceptions": [
-        "admins_not_fully_enforced"
+        "solo_review_bypass",
+        "codeowners_required"
       ]
     },
     {
       "repo": "opsdevcode/convergence",
       "profile": "docs",
-      "enforcement_state": "pending",
+      "enforcement_state": "adopted",
       "exceptions": [
-        "admin_bypass_always"
+        "solo_zero_approvals"
       ]
     },
     {
       "repo": "opsdevcode/.github",
       "profile": "org-meta",
-      "enforcement_state": "pending",
+      "enforcement_state": "adopted",
       "exceptions": [
-        "main_unprotected"
+        "solo_zero_approvals"
       ]
     }
   ]

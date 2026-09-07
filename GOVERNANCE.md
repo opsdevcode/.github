@@ -156,11 +156,10 @@ Do not remove current `:latest` publishing in this slice.
 
 ## Drift detection and adoption state
 
-The checker is advisory until a control is **adopted**. Product profile
-repos (Repave, Overpass, Toll, Dispatch, Relay) are `enforcement_state:
-adopted` for the evaluated baseline (ruleset, required checks, secret
-scanning, push protection, Dependabot alerts). Disabling those on a
-product is `DRIFT` (audit exit 1).
+The checker is advisory until a control is **adopted**. First-class mapped
+repos are `enforcement_state: adopted` for the evaluated baseline (ruleset
+or branch protection, required checks, secret scanning, push protection,
+Dependabot alerts). Disabling those is `DRIFT` (audit exit 1).
 
 | Status | Meaning |
 | --- | --- |
@@ -185,15 +184,13 @@ push protection, and Dependabot match the profile.
 
 Recorded on `profiles/repos.json`; not remediated here.
 
-- Repave: legacy required-check names; admin bypass always; solo `0` approvals
-- Relay: user-specific review bypass
-- Overpass / Toll / Dispatch: temporary solo `0` approvals
-- Infra: ruleset on `main` without a required check (`pulumi` `check` is
-  path-filtered and would deadlock non-pulumi PRs); temporary solo `0`
-  approvals; ARC cluster-admin debt
-- Website: CODEOWNERS/review design; admins not fully enforced
-- Convergence: admin bypass always
-- `.github`: `main` still unprotected
+- Repave: legacy required-check names; admin bypass `always` (Release admin
+  merge); solo `0` approvals
+- Overpass / Toll / Dispatch / Relay / infra / Convergence / `.github`:
+  temporary solo `0` approvals
+- Website: CODEOWNERS plus 1 approval with explicit `erskaggs` review bypass;
+  admins are enforced
+- Infra: ARC cluster-admin on deploy runners (separate P1; not GitHub rulesets)
 
 ## Reusable workflows
 
@@ -205,12 +202,17 @@ commitlint, optional container publish. No internal CI framework.
 1. Foundation (profiles + read-only audit) — done
 2. Minimal rulesets: Overpass, Toll, Dispatch, `repave-aws-infra` — done
 3. Secret scanning, push protection, Dependabot alerts on **product** repos — done
-4. Lightweight reusable CI for thin products
-5. Optional Repave check-name transition
-6. Bypass tightening (Repave/Relay/Convergence admin or user bypass)
-7. Generated-repo governance
-8. Org-level items (2FA, org security config enforcement) as separate admin work
-9. Infra/web/docs/org-meta remaining security and `.github` branch protection
+4. Remaining first-class repos (infra/web/docs/org-meta) security + `.github`
+   ruleset + always-on infra `test` check — done pending mapping PR
+5. Lightweight reusable CI for thin products — optional later
+6. Optional Repave check-name transition — optional later
+7. Generated-repo governance — opt-in audit only
+8. Org 2FA and org code-security configuration attach/enforce — **blocked**
+   without owner UI / security-admin API rights (still `ORG SECURITY GAP`)
+9. `GOVERNANCE_AUDIT_TOKEN` on `.github` for scheduled live audit
+
+Do not remove Repave `RepositoryRole` admin bypass `always` until Release is
+proven to merge without it.
 
 ## Audit
 
