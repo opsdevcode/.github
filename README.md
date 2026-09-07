@@ -3,7 +3,9 @@
 The organization Overview README lives in [`profile/README.md`](profile/README.md).
 
 Company and product-portfolio semantics: [`portfolio/README.md`](portfolio/README.md)
-([`portfolio/products.json`](portfolio/products.json)).
+([`portfolio/products.json`](portfolio/products.json),
+[`portfolio/public-content.md`](portfolio/public-content.md),
+[`portfolio/visual-family.md`](portfolio/visual-family.md)).
 
 Visual family grammar: [`brand/README.md`](brand/README.md).
 
