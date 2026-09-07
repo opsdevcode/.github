@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="OpsDevCode">
+  <title>OpsDevCode (mono)</title>
+  <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M6 13 V6 H13"/>
+    <path d="M19 6 H26 V13"/>
+    <path d="M26 19 V26 H19"/>
+    <path d="M13 26 H6 V19"/>
+  </g>
+</svg>
