@@ -6,7 +6,34 @@
       "id": "by-opsdevcode",
       "form": "{product} — by OpsDevCode",
       "note": "Relationship rule. Product surfaces must make OpsDevCode ownership discoverable while keeping independent product identity. Literal UI string is not required on every page."
-    }
+    },
+    "public_content": {
+      "rule": "plain-english-first",
+      "layers": [
+        "outcome",
+        "problem",
+        "product",
+        "workflow",
+        "mechanism",
+        "proof",
+        "system",
+        "action"
+      ],
+      "audience_tests": [
+        "senior-application-engineer",
+        "staff-platform-engineer"
+      ],
+      "docs": ["portfolio/public-content.md", "portfolio/visual-family.md"]
+    },
+    "shared_implementation": "documented-primitives",
+    "company_mark": "unapproved",
+    "product_marks": "wordmark-until-family-mark"
+  },
+  "capability_classes": {
+    "available": "Shipped and honest to show as working.",
+    "preview": "Reachable for early-access or invite; not general self-serve.",
+    "in-development": "Implemented in part; do not market as generally available.",
+    "planned": "Roadmap only. Never imply it ships today."
   },
   "maturity_vocabulary": {
     "early-access": "Product capabilities exist and are marketed. Hosted access is waitlist or invite, not general self-serve.",
@@ -37,6 +64,9 @@
       "name": "Repave",
       "role": "Governed software-delivery / repository lifecycle",
       "semantic_role": "Govern delivery.",
+      "plain_english": "Keep software delivery consistent from repository creation through every change, upgrade, and recovery.",
+      "visual_concept": "lifecycle-progression-evidence",
+      "site_owner": "opsdevcode/repave",
       "public_url": "https://repave.opsdevco.de",
       "aliases": ["https://repave.dev"],
       "maturity": "early-access",
@@ -46,6 +76,9 @@
       "name": "Overpass",
       "role": "Infrastructure/system state and relationships",
       "semantic_role": "Understand state.",
+      "plain_english": "Understand what infrastructure exists, how it is connected, and what changed.",
+      "visual_concept": "topology-relationships-state",
+      "site_owner": "opsdevcode/overpass",
       "public_url": "https://overpass.opsdevco.de",
       "aliases": [],
       "maturity": "in-development",
@@ -55,6 +88,9 @@
       "name": "Toll",
       "role": "Engineering/infrastructure economics and attribution",
       "semantic_role": "Connect economics.",
+      "plain_english": "See what your engineering systems cost and where that spend belongs.",
+      "visual_concept": "attribution-spend-flow",
+      "site_owner": "opsdevcode/toll",
       "public_url": "https://toll.opsdevco.de",
       "aliases": [],
       "maturity": "in-development",
@@ -64,6 +100,9 @@
       "name": "Dispatch",
       "role": "Governed engineering interaction / experience",
       "semantic_role": "Governed interaction.",
+      "plain_english": "Ask questions, understand the evidence, and safely take action.",
+      "visual_concept": "intent-evidence-confirm",
+      "site_owner": "opsdevcode/dispatch",
       "public_url": "https://dispatch.opsdevco.de",
       "aliases": [],
       "maturity": "emerging",
@@ -109,7 +148,11 @@
     "Shared family identity must not make the products visually identical.",
     "Products remain independently deployable.",
     "Repave is not the shell or container for sibling public identities.",
-    "Sibling product Host headers must be routed to that product's identity workload, not interpreted by Repave CanonicalHostMiddleware."
+    "Sibling product Host headers must be routed to that product's identity workload, not interpreted by Repave CanonicalHostMiddleware.",
+    "Do not CNAME Overpass, Toll, or Dispatch identity hosts to the Repave origin as a substitute for product workloads.",
+    "Dedicated product sites are owned by the product repository, not by the company Netlify site.",
+    "First-layer public copy must be plain English; technical names follow.",
+    "Do not fabricate product maturity, customers, or interfaces."
   ],
   "runtime_boundary": {
     "canonical_host_middleware_scope": "Repave owns Repave canonical-host behavior only.",

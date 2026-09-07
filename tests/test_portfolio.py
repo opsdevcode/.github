@@ -102,6 +102,56 @@ class PortfolioContractTests(unittest.TestCase):
         self.assertIn("independently understandable", text.lower())
         self.assertIn("Repave is not the shell", text)
         self.assertIn("Host headers", text)
+        self.assertIn("CNAME", text)
+        self.assertIn("plain English", text)
+
+    def test_public_content_layers_and_audience(self) -> None:
+        content = (self.data.get("family") or {}).get("public_content") or {}
+        self.assertEqual(content.get("rule"), "plain-english-first")
+        self.assertEqual(
+            content.get("layers"),
+            [
+                "outcome",
+                "problem",
+                "product",
+                "workflow",
+                "mechanism",
+                "proof",
+                "system",
+                "action",
+            ],
+        )
+        self.assertEqual(
+            set(content.get("audience_tests") or []),
+            {"senior-application-engineer", "staff-platform-engineer"},
+        )
+        self.assertEqual(
+            (self.data.get("family") or {}).get("shared_implementation"),
+            "documented-primitives",
+        )
+        self.assertEqual((self.data.get("family") or {}).get("company_mark"), "unapproved")
+        classes = self.data.get("capability_classes") or {}
+        self.assertEqual(set(classes), {"available", "preview", "in-development", "planned"})
+
+    def test_product_plain_english_and_site_owner(self) -> None:
+        owners = {
+            "repave": "opsdevcode/repave",
+            "overpass": "opsdevcode/overpass",
+            "toll": "opsdevcode/toll",
+            "dispatch": "opsdevcode/dispatch",
+        }
+        for pid, owner in owners.items():
+            row = self.data["products"][pid]
+            self.assertTrue(str(row.get("plain_english") or "").strip(), msg=pid)
+            self.assertTrue(str(row.get("visual_concept") or "").strip(), msg=pid)
+            self.assertEqual(row.get("site_owner"), owner)
+        docs = ROOT / "portfolio" / "public-content.md"
+        visual = ROOT / "portfolio" / "visual-family.md"
+        self.assertTrue(docs.is_file())
+        self.assertTrue(visual.is_file())
+        self.assertIn("Plain English first", docs.read_text(encoding="utf-8"))
+        self.assertIn("wordmark", visual.read_text(encoding="utf-8"))
+        self.assertNotIn("Relay", " ".join(p["name"] for p in self.data["products"].values()))
 
 
 if __name__ == "__main__":

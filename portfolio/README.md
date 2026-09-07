@@ -10,6 +10,8 @@ Implementation stays in each repo. This contract is the shared semantic map.
 product family.
 
 Machine-readable source: [`products.json`](products.json).
+Public verbal rules: [`public-content.md`](public-content.md).
+Visual family rules: [`visual-family.md`](visual-family.md).
 
 JSON is used because this repository’s other contracts (`profiles/*.json`) are
 JSON and validate with the Python standard library. This is not a CMS.
@@ -145,17 +147,15 @@ Current assignments: Repave `early-access`; Overpass and Toll
 - The four product IDs, names, semantic roles, canonical URLs, aliases
 - Endorsement relationship
 - Independence and runtime-boundary invariants
-- Maturity vocabulary and current product maturity
+- Maturity vocabulary, capability-claim classes, and current product maturity
 - Which ADR is authoritative for portfolio structure
+- Public verbal layers (plain English first) and visual family DNA
+- Product-repo ownership of dedicated sites; company-repo ownership of portfolio pages
 
 ## What this contract does not govern
 
-- CSS, color, type, logos, favicons, motion
-- Page copy, heroes, screenshots, feature catalogs
-- Product navigation chrome
-- DNS, Route53, Netlify, EKS, ingress, deployments
-- Repave `CanonicalHostMiddleware` implementation
+- A locked company logo (mark is `unapproved` until a later identity decision)
+- Live DNS, Route53, Netlify, EKS, or ingress *implementation*
+- Repave `CanonicalHostMiddleware` source (the routing *invariant* is in this file)
 - GitHub rulesets (see `GOVERNANCE.md`)
-
-`.github` owns the **portfolio contract**. It does not centrally own each
-product’s marketing implementation or visual design.
+- A shared frontend package (implementation is documented primitives, copied locally)
