@@ -1,4 +1,8 @@
 <p align="center">
+  <img src="https://raw.githubusercontent.com/opsdevcode/.github/main/profile/assets/github-avatar.png" alt="OpsDevCode" width="96">
+</p>
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/opsdevcode/.github/main/profile/assets/banner.png" alt="OpsDevCode — governed golden paths for platform engineering" width="960">
 </p>
 

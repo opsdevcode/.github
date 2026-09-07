@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 138" role="img" aria-label="OpsDevCode">
+  <rect width="960" height="138" fill="#F3EFE6"/>
+  <g fill="none" stroke="#1A1F1C" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" transform="translate(300 45) scale(1.5)">
+    <path d="M6 13 V6 H13"/>
+    <path d="M19 6 H26 V13"/>
+    <path d="M26 19 V26 H19"/>
+    <path d="M13 26 H6 V19"/>
+  </g>
+  <text x="360" y="78" fill="#1A1F1C" font-family="IBM Plex Sans, ui-sans-serif, sans-serif" font-size="28" font-weight="500" letter-spacing="-0.02em">OpsDevCode</text>
+</svg>
