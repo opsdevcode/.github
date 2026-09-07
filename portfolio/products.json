@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "family": {
+    "principle": "One company system. Four independent products. One recognizable product family.",
+    "endorsement": {
+      "id": "by-opsdevcode",
+      "form": "{product} — by OpsDevCode",
+      "note": "Relationship rule. Product surfaces must make OpsDevCode ownership discoverable while keeping independent product identity. Literal UI string is not required on every page."
+    }
+  },
+  "maturity_vocabulary": {
+    "early-access": "Product capabilities exist and are marketed. Hosted access is waitlist or invite, not general self-serve.",
+    "in-development": "Product identity and some implementation exist. Not generally available. Public identity may still be thin.",
+    "emerging": "Boundary and name are defined. Runtime and public identity are early; may still be intertwined with another product's hosted surface."
+  },
+  "authority": {
+    "portfolio": "Repave ADR 020 (OpsDevCode product architecture). Authoritative for company vs products vs Convergence.",
+    "does_not_override": [
+      "Repave ADR 009 remains the historical record of Repave display name and mark. It does not define the company or parent-platform hierarchy.",
+      "ADR 009 phrases such as \"intelligent platform layer\" must not override this contract."
+    ]
+  },
+  "company": {
+    "name": "OpsDevCode",
+    "role": "company",
+    "positioning": "Infrastructure for modern engineering organizations.",
+    "public_url": "https://opsdevco.de",
+    "is_not": [
+      "a fifth product",
+      "another Repave site",
+      "a product runtime",
+      "the Convergence methodology"
+    ]
+  },
+  "products": {
+    "repave": {
+      "name": "Repave",
+      "role": "Governed software-delivery / repository lifecycle",
+      "semantic_role": "Govern delivery.",
+      "public_url": "https://repave.opsdevco.de",
+      "aliases": ["https://repave.dev"],
+      "maturity": "early-access",
+      "endorsement": "by-opsdevcode"
+    },
+    "overpass": {
+      "name": "Overpass",
+      "role": "Infrastructure/system state and relationships",
+      "semantic_role": "Understand state.",
+      "public_url": "https://overpass.opsdevco.de",
+      "aliases": [],
+      "maturity": "in-development",
+      "endorsement": "by-opsdevcode"
+    },
+    "toll": {
+      "name": "Toll",
+      "role": "Engineering/infrastructure economics and attribution",
+      "semantic_role": "Connect economics.",
+      "public_url": "https://toll.opsdevco.de",
+      "aliases": [],
+      "maturity": "in-development",
+      "endorsement": "by-opsdevcode"
+    },
+    "dispatch": {
+      "name": "Dispatch",
+      "role": "Governed engineering interaction / experience",
+      "semantic_role": "Governed interaction.",
+      "public_url": "https://dispatch.opsdevco.de",
+      "aliases": [],
+      "maturity": "emerging",
+      "endorsement": "by-opsdevcode"
+    }
+  },
+  "methodology": {
+    "convergence": {
+      "name": "Convergence",
+      "relationship": "independent",
+      "public_url": "https://github.com/opsdevcode/convergence",
+      "note": "OpsDevCode may follow, reference, support, or apply Convergence. Convergence is not an OpsDevCode product, not in the four-product portfolio, not a runtime, and not a fifth product surface."
+    }
+  },
+  "internals": {
+    "relay": {
+      "name": "Relay",
+      "relationship": "internal-runtime",
+      "note": "Conversational runtime consumed by Dispatch. Not a public OpsDevCode product. GitHub governance may still use the product profile for this private repo."
+    }
+  },
+  "public_hosts": {
+    "company": "https://opsdevco.de",
+    "products": [
+      "https://repave.opsdevco.de",
+      "https://overpass.opsdevco.de",
+      "https://toll.opsdevco.de",
+      "https://dispatch.opsdevco.de"
+    ],
+    "aliases": [
+      {
+        "host": "https://repave.dev",
+        "of": "repave",
+        "note": "Existing Repave alias. Does not redefine ownership or portfolio structure."
+      }
+    ]
+  },
+  "invariants": [
+    "Every product must be independently understandable.",
+    "A visitor should not need to understand Repave before understanding Overpass, Toll, or Dispatch.",
+    "Each product owns its own proposition and product-specific experience.",
+    "Every product must remain recognizably part of OpsDevCode.",
+    "Shared family identity must not make the products visually identical.",
+    "Products remain independently deployable.",
+    "Repave is not the shell or container for sibling public identities.",
+    "Sibling product Host headers must be routed to that product's identity workload, not interpreted by Repave CanonicalHostMiddleware."
+  ],
+  "runtime_boundary": {
+    "canonical_host_middleware_scope": "Repave owns Repave canonical-host behavior only.",
+    "sibling_identity": "Must not depend on reaching the Repave origin and being rewritten to it."
+  }
+}

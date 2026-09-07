@@ -5,4 +5,5 @@ bash -n "$ROOT/scripts/audit-github-governance.sh"
 python3 "$ROOT/tests/test_governance.py" -q
 "$ROOT/scripts/audit-github-governance.sh" --offline
 "$ROOT/scripts/audit-github-governance.sh" --validate
+bash "$ROOT/tests/validate-portfolio.sh"
 echo "validate-governance: OK"
