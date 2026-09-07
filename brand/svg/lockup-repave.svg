@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 48" role="img" aria-label="Repave  by OpsDevCode">
+  <g fill="none" stroke="#C4841A" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" transform="translate(8 8)">
+    <path d="M7 24 H25"/><path d="M7 17 H18"/><path d="M14 10 H25"/><path d="M7 24 V17"/><path d="M25 17 V10"/>
+  </g>
+  <text x="52" y="22" fill="#1A1F1C" font-family="IBM Plex Sans, ui-sans-serif, sans-serif" font-size="18" font-weight="500">Repave</text>
+  <text x="52" y="38" fill="#5C615A" font-family="IBM Plex Sans, ui-sans-serif, sans-serif" font-size="11" letter-spacing="0.04em">by OpsDevCode</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 32" role="img" aria-label="Diagram primitives">
+  <title>OpsDevCode diagram primitives</title>
+  <g fill="none" stroke="#1A1F1C" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M4 8 H20"/>
+    <path d="M4 16 H12 M16 16 H24"/>
+    <path d="M12 12 V20 M16 12 V20"/>
+    <path d="M28 6 V26"/>
+    <path d="M32 10 H44 V22 H32"/>
+    <path d="M48 16 H60 M57 13 L60 16 L57 19"/>
+  </g>
+</svg>

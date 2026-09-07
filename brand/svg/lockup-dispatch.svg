@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 48" role="img" aria-label="Dispatch  by OpsDevCode">
+  <g fill="none" stroke="#5B4A8A" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" transform="translate(8 8)">
+    <path d="M6 16 H12"/><path d="M12 10 V22"/><path d="M20 10 V22"/><path d="M16 16 H26"/><path d="M23 13 L26 16 L23 19"/>
+  </g>
+  <text x="52" y="22" fill="#1A1F1C" font-family="IBM Plex Sans, ui-sans-serif, sans-serif" font-size="18" font-weight="500">Dispatch</text>
+  <text x="52" y="38" fill="#5C615A" font-family="IBM Plex Sans, ui-sans-serif, sans-serif" font-size="11" letter-spacing="0.04em">by OpsDevCode</text>
+</svg>
