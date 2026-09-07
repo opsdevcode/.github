@@ -8,6 +8,10 @@ This repository (`opsdevcode/.github`) owns the model. Product repos do not.
 `scripts/apply-github-governance.py --apply` mutates first-class GitHub settings
 and must not be run against generated repos.
 
+Company operating conventions (CI names, release invariants, secrets, backup,
+production-readiness, new-repo baseline, generated-repo split):
+[`docs/engineering-foundations.md`](docs/engineering-foundations.md).
+
 The **public product portfolio** (company vs four products vs Convergence) is
 [`portfolio/README.md`](portfolio/README.md). GitHub `product` profiles include
 Relay as an internal runtime repo; Relay is not a marketed OpsDevCode product.

@@ -1,0 +1,4 @@
+# Interim solo maintainer. CODEOWNERS requests review; required code-owner
+# review stays off so merge is not deadlocked at 0 approvals.
+* @erskaggs
+/.github/ @erskaggs
