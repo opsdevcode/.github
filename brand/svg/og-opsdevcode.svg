@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="OpsDevCode">
+  <rect width="1200" height="630" fill="#F3EFE6"/>
+  <g fill="none" stroke="#1A1F1C" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter" transform="translate(72 80) scale(2.2)">
+    <path d="M6 13 V6 H13"/><path d="M19 6 H26 V13"/><path d="M26 19 V26 H19"/><path d="M13 26 H6 V19"/>
+  </g>
+  <text x="72" y="280" fill="#1A1F1C" font-family="IBM Plex Serif, Georgia, serif" font-size="56">OpsDevCode</text>
+  <text x="72" y="328" fill="#3F433F" font-family="IBM Plex Sans, sans-serif" font-size="22">Infrastructure for modern engineering organizations.</text>
+  <g font-family="IBM Plex Sans, sans-serif" font-size="16">
+    <text x="72" y="420" fill="#C4841A">Repave - delivery</text>
+    <text x="320" y="420" fill="#1A7A72">Overpass - state</text>
+    <text x="568" y="420" fill="#2B5F9E">Toll - economics</text>
+    <text x="800" y="420" fill="#5B4A8A">Dispatch - interaction</text>
+  </g>
+  <line x1="72" y1="520" x2="1128" y2="520" stroke="#C9C2B3" stroke-width="1"/>
+  <text x="72" y="560" fill="#5C615A" font-family="IBM Plex Mono, monospace" font-size="14">opsdevco.de</text>
+</svg>

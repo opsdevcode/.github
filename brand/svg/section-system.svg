@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">OpsDevCode governed section</title>
+  <desc id="desc">Four product planes read the same system cut. Not a linear workflow.</desc>
+  <rect width="640" height="400" fill="#F3EFE6"/>
+  <g fill="none" stroke="#C9C2B3" stroke-width="1">
+    <path d="M40 40 H600 V360 H40 Z"/>
+  </g>
+  <g fill="none" stroke="#1A1F1C" stroke-width="1.75" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M80 120 V80 H160"/>
+    <path d="M480 80 H560 V120"/>
+    <path d="M560 280 V320 H480"/>
+    <path d="M160 320 H80 V280"/>
+  </g>
+  <g font-family="IBM Plex Sans, ui-sans-serif, sans-serif" fill="#1A1F1C">
+    <text x="320" y="54" text-anchor="middle" font-size="12" letter-spacing="0.16em">OPSDEVCODE</text>
+    <text x="320" y="72" text-anchor="middle" font-size="11" fill="#5C615A">governed section - not a pipeline</text>
+  </g>
+  <!-- Repave plane -->
+  <g fill="none" stroke="#C4841A" stroke-width="1.5" stroke-linecap="square">
+    <path d="M200 148 H280"/><path d="M200 168 H250"/><path d="M230 188 H280"/>
+    <path d="M200 148 V168"/><path d="M280 168 V188"/>
+  </g>
+  <text x="200" y="136" fill="#C4841A" font-family="IBM Plex Sans, sans-serif" font-size="12">Repave - delivery</text>
+  <!-- Overpass plane -->
+  <g fill="none" stroke="#1A7A72" stroke-width="1.5" stroke-linecap="square">
+    <path d="M360 150 H460"/><path d="M360 178 H460"/><path d="M385 150 V178"/><path d="M435 150 V178"/>
+  </g>
+  <text x="360" y="138" fill="#1A7A72" font-family="IBM Plex Sans, sans-serif" font-size="12">Overpass - state</text>
+  <!-- Toll plane -->
+  <g fill="none" stroke="#2B5F9E" stroke-width="1.5" stroke-linecap="square">
+    <path d="M200 250 H240"/><path d="M268 250 H308"/><path d="M240 236 V264"/><path d="M268 236 V264"/>
+    <path d="M220 236 V244"/><path d="M220 256 V264"/><path d="M288 236 V244"/><path d="M288 256 V264"/>
+  </g>
+  <text x="200" y="224" fill="#2B5F9E" font-family="IBM Plex Sans, sans-serif" font-size="12">Toll - economics</text>
+  <!-- Dispatch plane -->
+  <g fill="none" stroke="#5B4A8A" stroke-width="1.5" stroke-linecap="square">
+    <path d="M360 248 H390"/><path d="M390 232 V268"/><path d="M430 232 V268"/><path d="M410 250 H470"/><path d="M458 242 L470 250 L458 258"/>
+  </g>
+  <text x="360" y="222" fill="#5B4A8A" font-family="IBM Plex Sans, sans-serif" font-size="12">Dispatch - interaction</text>
+  <text x="320" y="348" text-anchor="middle" fill="#5C615A" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="10">planes meet at the company aperture - no required sequence</text>
+</svg>

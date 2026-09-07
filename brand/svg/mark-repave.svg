@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Repave">
+  <title>Repave</title>
+  <g fill="none" stroke="#C4841A" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M7 24 H25"/>
+    <path d="M7 17 H18"/>
+    <path d="M14 10 H25"/>
+    <path d="M7 24 V17"/>
+    <path d="M25 17 V10"/>
+  </g>
+</svg>

@@ -6,4 +6,5 @@ python3 "$ROOT/tests/test_governance.py" -q
 "$ROOT/scripts/audit-github-governance.sh" --offline
 "$ROOT/scripts/audit-github-governance.sh" --validate
 bash "$ROOT/tests/validate-portfolio.sh"
+python3 "$ROOT/tests/test_brand.py" -q
 echo "validate-governance: OK"
