@@ -215,5 +215,21 @@ class ScriptSafetyTests(unittest.TestCase):
                 self.assertNotIn(needle, text, msg=f"{path} contains {needle}")
 
 
+class FoundationFilesTests(unittest.TestCase):
+    def test_required_company_files_exist(self) -> None:
+        for rel in (
+            "CONTRIBUTING.md",
+            "SECURITY.md",
+            "CODEOWNERS",
+            "docs/engineering-foundations.md",
+        ):
+            self.assertTrue((ROOT / rel).is_file(), msg=rel)
+
+    def test_contributing_forbids_tool_vendor_authorship(self) -> None:
+        text = (ROOT / "CONTRIBUTING.md").read_text(encoding="utf-8")
+        self.assertIn("Tool-vendor or AI authorship footers are not used", text)
+        self.assertIn("security@opsdevcode.com", text)
+
+
 if __name__ == "__main__":
     unittest.main()
