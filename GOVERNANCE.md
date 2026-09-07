@@ -203,7 +203,8 @@ commitlint, optional container publish. No internal CI framework.
 2. Minimal rulesets: Overpass, Toll, Dispatch, `repave-aws-infra` — done
 3. Secret scanning, push protection, Dependabot alerts on **product** repos — done
 4. Remaining first-class repos (infra/web/docs/org-meta) security + `.github`
-   ruleset + always-on infra `test` check — done pending mapping PR
+   ruleset; infra required check is Pulumi job `check` (not a compile-only
+   GitHub Action)
 5. Lightweight reusable CI for thin products — optional later
 6. Optional Repave check-name transition — optional later
 7. Generated-repo governance — opt-in audit only
