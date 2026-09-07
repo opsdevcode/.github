@@ -114,6 +114,58 @@ class ClassificationTests(unittest.TestCase):
         judged = audit.evaluate_repo(profile, assignment, live)
         self.assertEqual(judged["status"], "DRIFT")
 
+    def test_partial_adopted_controls_drift_only_those_controls(self) -> None:
+        profile = audit.load_profiles()["product"]
+        assignment = {
+            "repo": "opsdevcode/overpass",
+            "profile": "product",
+            "enforcement_state": "pending",
+            "adopted_controls": ["ruleset_or_branch_protection", "required_checks"],
+        }
+        live = {
+            "exists": True,
+            "visibility": "private",
+            "default_branch": "main",
+            "gate": "no",
+            "checks": "yes",
+            "secret_scan": "no",
+            "push_protection": "no",
+            "dependabot": "no",
+        }
+        judged = audit.evaluate_repo(profile, assignment, live)
+        classes = {f["control"]: f["classification"] for f in judged["findings"]}
+        self.assertEqual(classes["ruleset_or_branch_protection"], "DRIFT")
+        self.assertEqual(classes["required_checks"], "COMPLIANT")
+        self.assertEqual(classes["secret_scanning"], "NOT_YET_ENFORCED")
+        self.assertEqual(judged["status"], "DRIFT")
+
+    def test_partial_adopted_controls_compliant_gate_still_pending_security(
+        self,
+    ) -> None:
+        profile = audit.load_profiles()["product"]
+        assignment = {
+            "repo": "opsdevcode/overpass",
+            "profile": "product",
+            "enforcement_state": "pending",
+            "adopted_controls": ["ruleset_or_branch_protection", "required_checks"],
+        }
+        live = {
+            "exists": True,
+            "visibility": "private",
+            "default_branch": "main",
+            "gate": "yes",
+            "checks": "yes",
+            "secret_scan": "no",
+            "push_protection": "no",
+            "dependabot": "no",
+        }
+        judged = audit.evaluate_repo(profile, assignment, live)
+        classes = {f["control"]: f["classification"] for f in judged["findings"]}
+        self.assertEqual(classes["ruleset_or_branch_protection"], "COMPLIANT")
+        self.assertEqual(classes["required_checks"], "COMPLIANT")
+        self.assertEqual(classes["secret_scanning"], "NOT_YET_ENFORCED")
+        self.assertEqual(judged["status"], "NOT_YET_ENFORCED")
+
 
 class ScriptSafetyTests(unittest.TestCase):
     def test_shell_syntax(self) -> None:

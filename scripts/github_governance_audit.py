@@ -66,10 +66,37 @@ def validate_mapping(profiles: dict[str, Any], mapping: dict[str, Any]) -> list[
         state = str(row.get("enforcement_state") or "")
         if state not in {"pending", "adopted", "exception"}:
             errors.append(f"invalid enforcement_state {state!r} for {name}")
+        adopted = row.get("adopted_controls")
+        if adopted is not None:
+            if not isinstance(adopted, list) or not all(
+                isinstance(item, str) and item for item in adopted
+            ):
+                errors.append(f"invalid adopted_controls for {name}")
+            else:
+                allowed = {
+                    "ruleset_or_branch_protection",
+                    "required_checks",
+                    "secret_scanning",
+                    "push_protection",
+                    "dependabot_alerts",
+                }
+                unknown = sorted(set(adopted) - allowed)
+                if unknown:
+                    errors.append(
+                        f"unknown adopted_controls {unknown} for {name}"
+                    )
     gen = mapping.get("generated") or {}
     if gen.get("profile") and gen["profile"] not in profiles:
         errors.append("generated.profile is unknown")
     return errors
+
+
+def control_enforcement_state(assignment: dict[str, Any], control: str) -> str:
+    """Per-control adoption; repo-level pending with adopted_controls is partial."""
+    adopted = assignment.get("adopted_controls")
+    if isinstance(adopted, list):
+        return "adopted" if control in adopted else "pending"
+    return str(assignment.get("enforcement_state") or "pending")
 
 
 def classify_control(
@@ -167,7 +194,11 @@ def evaluate_repo(
             gclass = "COMPLIANT"
         else:
             gclass = classify_control(
-                expected="present", actual=gate_actual, enforcement_state=state
+                expected="present",
+                actual=gate_actual,
+                enforcement_state=control_enforcement_state(
+                    assignment, "ruleset_or_branch_protection"
+                ),
             )
     else:
         gclass = "COMPLIANT"
@@ -182,7 +213,11 @@ def evaluate_repo(
             cclass = "COMPLIANT"
         else:
             cclass = classify_control(
-                expected="yes", actual=checks_actual, enforcement_state=state
+                expected="yes",
+                actual=checks_actual,
+                enforcement_state=control_enforcement_state(
+                    assignment, "required_checks"
+                ),
             )
         add("required_checks", "at-least-one", checks_actual, cclass)
 
@@ -206,7 +241,9 @@ def evaluate_repo(
             sclass = "COMPLIANT"
         else:
             sclass = classify_control(
-                expected=expected, actual=actual, enforcement_state=state
+                expected=expected,
+                actual=actual,
+                enforcement_state=control_enforcement_state(assignment, control),
             )
         add(control, expected, actual, sclass)
 
