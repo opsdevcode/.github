@@ -1,0 +1,19 @@
+{
+  "profile": "generated",
+  "visibility": "private",
+  "default_branch": "main",
+  "pull_request_required": false,
+  "approvals_required": 0,
+  "approvals_solo_exception_allowed": true,
+  "conversation_resolution": false,
+  "force_push_allowed": false,
+  "branch_deletion_allowed": false,
+  "required_checks": "none",
+  "secret_scanning": true,
+  "push_protection": true,
+  "dependabot_alerts": true,
+  "workflow_permissions": "contents:read",
+  "release_model": "none",
+  "deploy_owner": "none",
+  "notes": "Not commercial products. Private by default. Do not inherit Repave full CI. Audited only with --include-generated."
+}

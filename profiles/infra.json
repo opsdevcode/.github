@@ -1,0 +1,19 @@
+{
+  "profile": "infra",
+  "visibility": "private",
+  "default_branch": "main",
+  "pull_request_required": true,
+  "approvals_required": 1,
+  "approvals_solo_exception_allowed": true,
+  "conversation_resolution": true,
+  "force_push_allowed": false,
+  "branch_deletion_allowed": false,
+  "required_checks": "any",
+  "secret_scanning": true,
+  "push_protection": true,
+  "dependabot_alerts": true,
+  "workflow_permissions": "contents:read",
+  "release_model": "none",
+  "deploy_owner": "this_repository",
+  "notes": "No application semantic-release. Owns environment apply. Product releases must not redeploy sibling products."
+}
