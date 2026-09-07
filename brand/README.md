@@ -24,6 +24,9 @@ That idea must remain identifiable with the logos removed.
 | Stripe-like Inter + `#635bff` + navy | Drop. Generic developer-tool kit. |
 | Product accents amber / teal / blue / violet | Keep as *hue families*; retune for one paper/ink system. |
 | Rail layout on the company site | Keep. It already reads as a drawing annotation. |
+| Repave v3 kit (`repave/docs/brand`, ADR 009) | **Product equity to evolve, not ignore.** Keep amber-as-scarce-brand (not status). Drop isometric “platform-layer” mark and tagline *The intelligent platform layer* as **family** authority — ADR 020 + this grammar win. Inter-on-navy is Repave-local history, not the company system. |
+| Overpass `web_identity` teal + cream | Keep teal as the Overpass hue family; restyle geometry to section DNA. |
+| Toll / Dispatch public identity pages | Missing locally; do not invent fake UI. Apply grammar when those hosts exist. |
 
 The company mark is **not** another product icon. Four open L-corners form an
 empty aperture: the family. Products draw *inside* that same 32-unit stroke
