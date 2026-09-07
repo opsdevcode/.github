@@ -3,12 +3,15 @@
 </p>
 
 <p align="center">
-  <strong>OpsDevCode</strong> builds <a href="https://repave.dev"><strong>repave</strong></a> — the intelligent platform layer.<br>
-  Governed golden paths so specialized expertise can participate in delivery without becoming the delivery architecture.
+  <strong>OpsDevCode</strong> — governed golden paths for platform engineering.<br>
+  We connect how organizations govern software delivery, understand infrastructure, connect cost to
+  ownership, and operate the system as it changes.
 </p>
 
 <p align="center">
-  <a href="https://repave.dev">Website</a>
+  <a href="https://opsdevco.de">opsdevco.de</a>
+  &nbsp;·&nbsp;
+  <a href="https://repave.opsdevco.de">Repave</a>
   &nbsp;·&nbsp;
   <a href="https://github.com/opsdevcode/convergence">Convergence</a>
   &nbsp;·&nbsp;
@@ -48,7 +51,7 @@ Most of the platform is private. This is the public face.
     </td>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/opsdevcode/cloudopt">cloudopt</a></h3>
-      AI-assisted cloud platform for AWS and Kubernetes — cost, posture, and audits.
+      Legacy experiment for AWS/Kubernetes cost and posture. Not an OpsDevCode product.
     </td>
   </tr>
   <tr>
