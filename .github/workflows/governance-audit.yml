@@ -1,0 +1,33 @@
+name: governance-audit
+
+# Live GET-only audit. Needs an org-admin (or equivalent) token that can
+# read private product repos and security_and_analysis. Store it as
+# GOVERNANCE_AUDIT_TOKEN on this repository. Default GITHUB_TOKEN cannot
+# inspect sibling private repos.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 13 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  live-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Audit live GitHub settings
+        env:
+          GH_TOKEN: ${{ secrets.GOVERNANCE_AUDIT_TOKEN }}
+        run: |
+          if [ -z "${GH_TOKEN}" ]; then
+            echo "GOVERNANCE_AUDIT_TOKEN is not set; skip live audit."
+            echo "Add a repo secret with org repo + security read so product DRIFT fails CI."
+            exit 0
+          fi
+          ./scripts/audit-github-governance.sh
