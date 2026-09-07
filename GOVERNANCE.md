@@ -171,6 +171,12 @@ The checker is advisory.
 `UNKNOWN` is **not** compliant. It is reported per control. During `pending`
 it does not fail the run.
 
+Optional `adopted_controls` on a mapping row marks individual controls as
+adopted while the repo stays `enforcement_state: pending`. A mismatch on an
+adopted control is `DRIFT`. Remaining profile controls stay
+`NOT_YET_ENFORCED`. Do not set whole-repo `adopted` until secret scanning,
+push protection, and Dependabot match the profile.
+
 ## Exceptions (current debt, not the standard)
 
 Recorded on `profiles/repos.json`; not remediated here.
@@ -179,7 +185,10 @@ Recorded on `profiles/repos.json`; not remediated here.
 - Relay: user-specific review bypass
 - Website: CODEOWNERS/review design; admins not fully enforced
 - Convergence: admin bypass always
-- Overpass / Toll / Dispatch / infra: no ruleset yet
+- Overpass / Toll / Dispatch: ruleset on `main`; temporary solo `0` approvals
+- Infra: ruleset on `main` without a required check (`pulumi` `check` is
+  path-filtered and would deadlock non-pulumi PRs); temporary solo `0`
+  approvals; ARC cluster-admin debt
 - ARC cluster-admin on deploy runners: separate infra P1
 
 ## Reusable workflows
