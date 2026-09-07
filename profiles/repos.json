@@ -24,20 +24,17 @@
     {
       "repo": "opsdevcode/repave",
       "profile": "product",
-      "enforcement_state": "pending",
+      "enforcement_state": "adopted",
       "exceptions": [
         "legacy_required_check_names",
-        "admin_bypass_always"
+        "admin_bypass_always",
+        "solo_zero_approvals"
       ]
     },
     {
       "repo": "opsdevcode/overpass",
       "profile": "product",
-      "enforcement_state": "pending",
-      "adopted_controls": [
-        "ruleset_or_branch_protection",
-        "required_checks"
-      ],
+      "enforcement_state": "adopted",
       "exceptions": [
         "solo_zero_approvals"
       ]
@@ -45,11 +42,7 @@
     {
       "repo": "opsdevcode/toll",
       "profile": "product",
-      "enforcement_state": "pending",
-      "adopted_controls": [
-        "ruleset_or_branch_protection",
-        "required_checks"
-      ],
+      "enforcement_state": "adopted",
       "exceptions": [
         "solo_zero_approvals"
       ]
@@ -57,11 +50,7 @@
     {
       "repo": "opsdevcode/dispatch",
       "profile": "product",
-      "enforcement_state": "pending",
-      "adopted_controls": [
-        "ruleset_or_branch_protection",
-        "required_checks"
-      ],
+      "enforcement_state": "adopted",
       "exceptions": [
         "solo_zero_approvals"
       ]
@@ -69,7 +58,7 @@
     {
       "repo": "opsdevcode/relay",
       "profile": "product",
-      "enforcement_state": "pending",
+      "enforcement_state": "adopted",
       "exceptions": [
         "user_review_bypass"
       ],

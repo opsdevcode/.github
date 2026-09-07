@@ -167,6 +167,27 @@ class ClassificationTests(unittest.TestCase):
         self.assertEqual(judged["status"], "NOT_YET_ENFORCED")
 
 
+    def test_evaluate_adopted_product_baseline_compliant(self) -> None:
+        profile = audit.load_profiles()["product"]
+        assignment = {
+            "repo": "opsdevcode/overpass",
+            "profile": "product",
+            "enforcement_state": "adopted",
+        }
+        live = {
+            "exists": True,
+            "visibility": "private",
+            "default_branch": "main",
+            "gate": "yes",
+            "checks": "yes",
+            "secret_scan": "yes",
+            "push_protection": "yes",
+            "dependabot": "yes",
+        }
+        judged = audit.evaluate_repo(profile, assignment, live)
+        self.assertEqual(judged["status"], "COMPLIANT")
+
+
 class ScriptSafetyTests(unittest.TestCase):
     def test_shell_syntax(self) -> None:
         script = ROOT / "scripts" / "audit-github-governance.sh"

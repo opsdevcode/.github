@@ -156,7 +156,11 @@ Do not remove current `:latest` publishing in this slice.
 
 ## Drift detection and adoption state
 
-The checker is advisory.
+The checker is advisory until a control is **adopted**. Product profile
+repos (Repave, Overpass, Toll, Dispatch, Relay) are `enforcement_state:
+adopted` for the evaluated baseline (ruleset, required checks, secret
+scanning, push protection, Dependabot alerts). Disabling those on a
+product is `DRIFT` (audit exit 1).
 
 | Status | Meaning |
 | --- | --- |
@@ -181,31 +185,32 @@ push protection, and Dependabot match the profile.
 
 Recorded on `profiles/repos.json`; not remediated here.
 
-- Repave: legacy required-check names; admin bypass always
+- Repave: legacy required-check names; admin bypass always; solo `0` approvals
 - Relay: user-specific review bypass
-- Website: CODEOWNERS/review design; admins not fully enforced
-- Convergence: admin bypass always
-- Overpass / Toll / Dispatch: ruleset on `main`; temporary solo `0` approvals
+- Overpass / Toll / Dispatch: temporary solo `0` approvals
 - Infra: ruleset on `main` without a required check (`pulumi` `check` is
   path-filtered and would deadlock non-pulumi PRs); temporary solo `0`
   approvals; ARC cluster-admin debt
-- ARC cluster-admin on deploy runners: separate infra P1
+- Website: CODEOWNERS/review design; admins not fully enforced
+- Convergence: admin bypass always
+- `.github`: `main` still unprotected
 
 ## Reusable workflows
 
 Not in this slice. Later, small callables only: Python quality, Python tests,
 commitlint, optional container publish. No internal CI framework.
 
-## Migration strategy (do not execute 2–8 here)
+## Migration strategy
 
-1. This foundation
-2. Minimal rulesets: Overpass, Toll, Dispatch, `repave-aws-infra`
-3. Secret scanning, push protection, Dependabot alerts
+1. Foundation (profiles + read-only audit) — done
+2. Minimal rulesets: Overpass, Toll, Dispatch, `repave-aws-infra` — done
+3. Secret scanning, push protection, Dependabot alerts on **product** repos — done
 4. Lightweight reusable CI for thin products
 5. Optional Repave check-name transition
-6. Bypass tightening
+6. Bypass tightening (Repave/Relay/Convergence admin or user bypass)
 7. Generated-repo governance
-8. Org-level items (2FA, org security config) as separate admin work
+8. Org-level items (2FA, org security config enforcement) as separate admin work
+9. Infra/web/docs/org-meta remaining security and `.github` branch protection
 
 ## Audit
 
