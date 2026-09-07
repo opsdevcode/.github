@@ -1,0 +1,18 @@
+{
+  "profile": "docs",
+  "visibility": "public",
+  "default_branch": "main",
+  "pull_request_required": true,
+  "approvals_required": 0,
+  "approvals_solo_exception_allowed": true,
+  "conversation_resolution": true,
+  "force_push_allowed": false,
+  "branch_deletion_allowed": false,
+  "required_checks": "any",
+  "secret_scanning": true,
+  "push_protection": true,
+  "dependabot_alerts": true,
+  "workflow_permissions": "contents:read",
+  "release_model": "none",
+  "deploy_owner": "none"
+}
