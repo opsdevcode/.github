@@ -1,8 +1,8 @@
 # OpsDevCode visual system
 
 Canonical **visual thesis and family grammar**. Product semantics live in
-[`../portfolio/README.md`](../portfolio/README.md) (when present). This directory
-does not own marketing copy or infrastructure.
+[`../portfolio/README.md`](../portfolio/README.md). This directory does not own
+marketing copy or infrastructure.
 
 ## Visual thesis
 

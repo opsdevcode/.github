@@ -7,6 +7,10 @@ This repository (`opsdevcode/.github`) owns the model. Product repos do not.
 Nothing here enables rulesets, security features, or visibility changes.
 `scripts/audit-github-governance.sh` is **read-only**.
 
+The **public product portfolio** (company vs four products vs Convergence) is
+[`portfolio/README.md`](portfolio/README.md). GitHub `product` profiles include
+Relay as an internal runtime repo; Relay is not a marketed OpsDevCode product.
+
 ## Purpose
 
 Answer, for any repo:
