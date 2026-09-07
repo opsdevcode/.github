@@ -4,8 +4,9 @@ Engineering source of truth for how OpsDevCode GitHub repositories are
 classified and what controls they are **supposed** to have.
 
 This repository (`opsdevcode/.github`) owns the model. Product repos do not.
-Nothing here enables rulesets, security features, or visibility changes.
 `scripts/audit-github-governance.sh` is **read-only**.
+`scripts/apply-github-governance.py --apply` mutates first-class GitHub settings
+and must not be run against generated repos.
 
 The **public product portfolio** (company vs four products vs Convergence) is
 [`portfolio/README.md`](portfolio/README.md). GitHub `product` profiles include
@@ -75,7 +76,9 @@ Target on the default branch (`main`):
 - required CI checks
 - no unconditional admin bypass
 
-This file does **not** create rulesets.
+This file describes the **target** and the **enforced solo** path. Live
+rulesets on first-class repos were aligned 2026-09-07
+([`docs/governance-mutations.md`](docs/governance-mutations.md)).
 
 ## Review / approval policy
 
@@ -86,12 +89,9 @@ This file does **not** create rulesets.
 | web | 1 approval and/or CODEOWNERS when maintainers exist |
 | docs / org-meta | PR required; 0 approvals acceptable |
 
-Solo-operator **temporary** `0` approval is allowed **only** when all of:
-
-- required CI exists
-- direct push to default branch remains blocked
-- admin bypass is **not** `always`
-- the exception is recorded on the repo mapping
+Current **enforced** approval count on first-class repos is **0** so solo
+operation does not require admin bypass. Target remains 1 when a second
+qualified maintainer exists. Recorded as `solo_zero_approvals`.
 
 ## Bypass policy
 
@@ -100,8 +100,11 @@ Avoid `RepositoryRole` admin bypass = `always`.
 Preferred: no bypass. If required: explicit actor, pull-request bypass only,
 narrow emergency scope.
 
-Current always-on admin bypass (Repave, Convergence, satellites) and
-user-specific bypass (Relay) is **debt**, not the standard. Not changed here.
+No `RepositoryRole` admin bypass = `always` on first-class repos.
+
+GitHub Actions cannot be registered as a ruleset Integration bypass in this
+org (API 422). Automation that must change `main` (Release changelog, infra
+image pins) must open a PR or use an org-installed GitHub App.
 
 ## Required checks and CI naming
 
@@ -184,40 +187,33 @@ adopted control is `DRIFT`. Remaining profile controls stay
 `NOT_YET_ENFORCED`. Do not set whole-repo `adopted` until secret scanning,
 push protection, and Dependabot match the profile.
 
-## Exceptions (current debt, not the standard)
+## Exceptions (documented, not accidental)
 
-Recorded on `profiles/repos.json`; not remediated here.
+Recorded on `profiles/repos.json`.
 
-- Repave: legacy required-check names; admin bypass `always` (Release admin
-  merge); solo `0` approvals
-- Overpass / Toll / Dispatch / Relay / infra / Convergence / `.github`:
-  temporary solo `0` approvals
-- Website: CODEOWNERS plus 1 approval with explicit `erskaggs` review bypass;
-  admins are enforced
-- Infra: ARC cluster-admin on deploy runners (separate P1; not GitHub rulesets)
+- All first-class repos: temporary solo `0` approvals (`solo_zero_approvals`)
+- Repave: legacy required-check names (`legacy_required_check_names`)
+- Website: CODEOWNERS file still *requests* reviews; required code-owner
+  review is **off** so solo merge is not deadlocked
+- Infra: ARC cluster-admin on deploy runners (`arc_cluster_admin_debt`)
+- Repave Release + infra `DEPLOY_BUMP_TOKEN`: cannot use GitHub Actions as a
+  ruleset bypass actor (`actions_ruleset_bypass_unsupported`)
 
 ## Reusable workflows
 
-Not in this slice. Later, small callables only: Python quality, Python tests,
-commitlint, optional container publish. No internal CI framework.
+Not in this slice. Later, small callables only.
 
 ## Migration strategy
 
 1. Foundation (profiles + read-only audit) — done
-2. Minimal rulesets: Overpass, Toll, Dispatch, `repave-aws-infra` — done
-3. Secret scanning, push protection, Dependabot alerts on **product** repos — done
-4. Remaining first-class repos (infra/web/docs/org-meta) security + `.github`
-   ruleset; infra required check is Pulumi job `check` (not a compile-only
-   GitHub Action)
-5. Lightweight reusable CI for thin products — optional later
-6. Optional Repave check-name transition — optional later
-7. Generated-repo governance — opt-in audit only
-8. Org 2FA and org code-security configuration attach/enforce — **blocked**
-   without owner UI / security-admin API rights (still `ORG SECURITY GAP`)
-9. `GOVERNANCE_AUDIT_TOKEN` on `.github` for scheduled live audit
+2. First-class PR/ruleset/merge baseline — done 2026-09-07
+3. Dedicated GitHub App for Release/infra pin commits — **next**
+4. Optional Repave check-name transition — later
+5. Generated-repo governance — deferred
+6. Org 2FA — **ORG SECURITY GAP**
+7. Raise product/infra approvals to 1 when a second maintainer exists
 
-Do not remove Repave `RepositoryRole` admin bypass `always` until Release is
-proven to merge without it.
+Do not re-introduce admin `always` bypass to paper over automation.
 
 ## Audit
 

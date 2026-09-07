@@ -27,8 +27,8 @@
       "enforcement_state": "adopted",
       "exceptions": [
         "legacy_required_check_names",
-        "admin_bypass_always",
-        "solo_zero_approvals"
+        "solo_zero_approvals",
+        "actions_ruleset_bypass_unsupported"
       ]
     },
     {
@@ -70,7 +70,8 @@
       "enforcement_state": "adopted",
       "exceptions": [
         "solo_zero_approvals",
-        "arc_cluster_admin_debt"
+        "arc_cluster_admin_debt",
+        "actions_ruleset_bypass_unsupported"
       ]
     },
     {
@@ -78,8 +79,8 @@
       "profile": "web",
       "enforcement_state": "adopted",
       "exceptions": [
-        "solo_review_bypass",
-        "codeowners_required"
+        "solo_zero_approvals",
+        "codeowners_advisory"
       ]
     },
     {

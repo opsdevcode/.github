@@ -7,7 +7,11 @@ Company and product-portfolio semantics: [`portfolio/README.md`](portfolio/READM
 
 Visual family grammar: [`brand/README.md`](brand/README.md).
 
-Repository governance (engineering, not the org Overview): [`GOVERNANCE.md`](GOVERNANCE.md).
+Repository governance (engineering, not the org Overview): [`GOVERNANCE.md`](GOVERNANCE.md),
+[`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+Org-wide pull request template: [`PULL_REQUEST_TEMPLATE.md`](PULL_REQUEST_TEMPLATE.md)
+(used when a repo has no template of its own).
 
 ```bash
 ./scripts/audit-github-governance.sh
