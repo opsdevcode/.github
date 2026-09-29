@@ -124,6 +124,10 @@ authoritative until that slice.
 `required_checks: any` means “at least one required status check”, not a
 fixed job list. Product-specific jobs remain local.
 
+Every first-class repo that runs Conventional Commits CI must require
+**`semantic-pull-request`** and **`commitlint`** on `main` (union with
+existing required jobs; do not drop them).
+
 ## Security baseline
 
 Required (when the GitHub plan exposes the control):
