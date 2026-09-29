@@ -98,6 +98,35 @@
       "exceptions": [
         "solo_zero_approvals"
       ]
+    },
+    {
+      "repo": "opsdevcode/specmint-language",
+      "profile": "product",
+      "enforcement_state": "pending",
+      "exceptions": [
+        "solo_zero_approvals",
+        "public_extract"
+      ],
+      "visibility_semantics": "public-extract"
+    },
+    {
+      "repo": "opsdevcode/specmint-platform",
+      "profile": "product",
+      "enforcement_state": "pending",
+      "exceptions": [
+        "solo_zero_approvals",
+        "public_extract"
+      ],
+      "visibility_semantics": "public-extract"
+    },
+    {
+      "repo": "opsdevcode/specmint",
+      "profile": "product",
+      "enforcement_state": "pending",
+      "exceptions": [
+        "solo_zero_approvals"
+      ],
+      "visibility_semantics": "internal-hosted"
     }
   ]
 }

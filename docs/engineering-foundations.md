@@ -10,7 +10,8 @@ Platform composition: [`platform-composition-v1alpha1.md`](platform-composition-
 ## First-class repositories
 
 `opsdevcode/.github`, `repave`, `overpass`, `toll`, `dispatch`, `relay`,
-`repave-aws-infra`, `opdevcode-website`, `convergence`.
+`repave-aws-infra`, `opdevcode-website`, `convergence`, `specmint-language`,
+`specmint-platform`. `specmint` stays internal (visibility unchanged).
 
 Generated / goldpath repos are **not** first-class company repos.
 
@@ -35,9 +36,9 @@ Do not force one release engine.
 | Repo | Engine | Production identity |
 | --- | --- | --- |
 | Repave | python-semantic-release | Engine tags; infra pins chart/image SHA |
-| Overpass | merge-to-main image publish | `ghcr.io/opsdevcode/overpass:<git-sha>` |
+| Overpass / Toll / Dispatch / Relay | python-semantic-release | Image/SHA or internal SKU; no second bot |
 | Company site | release-please | Netlify production from `main` |
-| Relay | existing release workflow | Internal; not a public SKU |
+| SpecMint language / platform | tag-triggered GitHub Release today | Convert to python-semantic-release later; do not rebuild existing `0.1.0a1` artifacts |
 
 Company invariants:
 
