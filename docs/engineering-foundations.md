@@ -5,6 +5,7 @@ roadmap. Not Convergence.
 
 Canonical contribution path: [`CONTRIBUTING.md`](../CONTRIBUTING.md).
 GitHub controls: [`GOVERNANCE.md`](../GOVERNANCE.md).
+Platform composition: [`platform-composition-v1alpha1.md`](platform-composition-v1alpha1.md).
 
 ## First-class repositories
 
