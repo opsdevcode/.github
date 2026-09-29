@@ -12,28 +12,28 @@ GITHUB_ACTIONS_APP_ID = 15368  # github-actions[bot]
 
 REPOS: dict[str, dict[str, Any]] = {
     "opsdevcode/.github": {
-        "checks": ["validate"],
+        "checks": ["validate", "semantic-pull-request", "commitlint"],
         "approvals": 0,
         "codeowners": False,
         "actions_bypass": False,
         "create_if_missing": False,
     },
     "opsdevcode/overpass": {
-        "checks": ["test"],
+        "checks": ["test", "semantic-pull-request", "commitlint"],
         "approvals": 0,
         "codeowners": False,
         "actions_bypass": False,
         "create_if_missing": False,
     },
     "opsdevcode/toll": {
-        "checks": ["test"],
+        "checks": ["test", "semantic-pull-request", "commitlint"],
         "approvals": 0,
         "codeowners": False,
         "actions_bypass": False,
         "create_if_missing": False,
     },
     "opsdevcode/dispatch": {
-        "checks": ["test"],
+        "checks": ["test", "semantic-pull-request", "commitlint"],
         "approvals": 0,
         "codeowners": False,
         "actions_bypass": False,
@@ -54,7 +54,7 @@ REPOS: dict[str, dict[str, Any]] = {
         "note": "Target 1 approval when a second maintainer exists; 0 keeps solo path live.",
     },
     "opsdevcode/repave-aws-infra": {
-        "checks": ["check"],
+        "checks": ["check", "semantic-pull-request", "commitlint"],
         "approvals": 0,
         "codeowners": False,
         "actions_bypass": False,
@@ -68,6 +68,8 @@ REPOS: dict[str, dict[str, Any]] = {
             "Python quality and security",
             "commitlint",
             "semantic-pull-request",
+            "specmint-cross-process",
+            "a11y",
             "operator-test",
             "operator-e2e",
             "chart-validate",
@@ -94,12 +96,34 @@ REPOS: dict[str, dict[str, Any]] = {
         "create_if_missing": False,
     },
     "opsdevcode/opdevcode-website": {
-        "checks": ["version"],
+        "checks": ["version", "semantic-pull-request", "commitlint"],
         "approvals": 0,
         "codeowners": False,
         "actions_bypass": False,
         "create_if_missing": True,
         "delete_classic_protection": True,
+    },
+    "opsdevcode/specmint-language": {
+        "checks": ["semantic-pull-request", "commitlint"],
+        "approvals": 0,
+        "codeowners": False,
+        "actions_bypass": False,
+        "create_if_missing": False,
+    },
+    "opsdevcode/specmint-platform": {
+        "checks": ["semantic-pull-request", "commitlint"],
+        "approvals": 0,
+        "codeowners": False,
+        "actions_bypass": False,
+        "create_if_missing": False,
+    },
+    "opsdevcode/specmint": {
+        "checks": ["semantic-pull-request", "commitlint"],
+        "approvals": 0,
+        "codeowners": False,
+        "actions_bypass": False,
+        "create_if_missing": False,
+        "note": "Visibility stays internal; apply must not PATCH visibility.",
     },
 }
 
@@ -306,6 +330,9 @@ def main() -> int:
         "opsdevcode/relay",
         "opsdevcode/opdevcode-website",
         "opsdevcode/convergence",
+        "opsdevcode/specmint-language",
+        "opsdevcode/specmint-platform",
+        "opsdevcode/specmint",
     ]
     for full in order:
         print(f"\n=== {full} ===")
