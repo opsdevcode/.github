@@ -30,6 +30,9 @@ class ProfileTests(unittest.TestCase):
             "opsdevcode/opdevcode-website",
             "opsdevcode/convergence",
             "opsdevcode/.github",
+            "opsdevcode/specmint-language",
+            "opsdevcode/specmint-platform",
+            "opsdevcode/specmint",
         }
         names = {row["repo"] for row in mapping["repos"]}
         self.assertTrue(required <= names)

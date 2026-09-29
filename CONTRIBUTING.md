@@ -13,6 +13,11 @@ Generated / goldpath repositories are **not** this path. See
 1. Branch from `main`
 2. Make a focused change
 3. Use [Conventional Commits](https://www.conventionalcommits.org/)
+   (`type: lowercase subject`; breaking via `!` or `BREAKING CHANGE:` footer).
+   Canonical CI: `.github/workflows/conventional-commits.yml` in this repo
+   (`amannn/action-semantic-pull-request` + commitlint). SemVer is driven by
+   `feat` / `fix` / breaking commits using each product’s existing release
+   engine (python-semantic-release or release-please). Do not add a second bot.
 4. Run the **repo’s** local checks
 5. Push the branch
 6. Open a pull request (PR required)
