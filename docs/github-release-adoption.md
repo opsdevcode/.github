@@ -42,6 +42,10 @@ python-semantic-release in an adoption PR. Do not add a second tagger.
 | web | release-please | GitHub Release |
 | org-meta / product-slice / generated / side-oss | none | none |
 
+`opsdevcode/mint-action` is profile `product` but uses **release-please**
+(composite action, not Python). `opsdevcode/mint-starter` stays `engine: none`.
+Do not add a second tagger.
+
 ## Merge
 
 Squash-merge when required checks are green. Tags come from the release

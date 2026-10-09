@@ -305,10 +305,11 @@
         "repository": "opsdevcode/mint-action",
         "profile": "product",
         "canonical": "github-release",
-        "engine": "none",
+        "engine": "release-please",
         "tagPolicy": {
           "manualTags": false,
-          "retag": false
+          "retag": false,
+          "pattern": "^v0\\.[0-9]+\\.[0-9]+-alpha\\.[0-9]+$"
         },
         "prerelease": {
           "githubMakeLatest": false
@@ -338,7 +339,7 @@
         "provenance": {
           "synthesize": false
         },
-        "notes": "Consumers pin an immutable merge SHA. No action tags, no latest, no @main. Language wheel comes from the specmint-language GitHub Release."
+        "notes": "Release Please owns tags after squash-merge. Consumers still pin an immutable merge SHA, never @main, @latest, or a floating v1. Language wheel comes from the specmint-language GitHub Release. githubMakeLatest stays false."
       },
       "enforcementState": "pending",
       "coverage": "notes"

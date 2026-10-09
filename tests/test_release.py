@@ -210,7 +210,8 @@ class ClassificationTests(unittest.TestCase):
             "deferred",
         )
         self.assertEqual(rows["opsdevcode/mint-action"]["enforcementState"], "pending")
-        self.assertEqual(rows["opsdevcode/mint-action"]["contract"]["engine"], "none")
+        self.assertEqual(rows["opsdevcode/mint-action"]["contract"]["engine"], "release-please")
+        self.assertFalse(rows["opsdevcode/mint-action"]["contract"]["prerelease"]["githubMakeLatest"])
         self.assertEqual(rows["opsdevcode/mint-starter"]["enforcementState"], "pending")
         self.assertEqual(rows["opsdevcode/mint-starter"]["contract"]["profile"], "docs")
 
