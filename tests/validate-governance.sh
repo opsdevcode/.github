@@ -7,4 +7,8 @@ python3 "$ROOT/tests/test_governance.py" -q
 "$ROOT/scripts/audit-github-governance.sh" --validate
 bash "$ROOT/tests/validate-portfolio.sh"
 python3 "$ROOT/tests/test_brand.py" -q
+python3 "$ROOT/tests/test_release.py" -q
+python3 "$ROOT/scripts/validate_release_contract.py" \
+  --contract "$ROOT/opsdevcode-release.json" \
+  --classification "$ROOT/profiles/releases.json"
 echo "validate-governance: OK"

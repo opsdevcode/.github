@@ -1,0 +1,1796 @@
+{
+  "schema": "opsdevcode.release-classification/v0",
+  "organization": "opsdevcode",
+  "canonicalChannel": "github-release",
+  "policy": "docs/github-releases.md",
+  "repos": [
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/.github",
+        "profile": "org-meta",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Org policy and schema owner. No product GitHub Release."
+      },
+      "enforcementState": "adopted",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/specmint-language",
+        "profile": "mint-language",
+        "canonical": "github-release",
+        "engine": "release-please",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false,
+          "pattern": "^v0\\.[0-9]+\\.[0-9]+-alpha\\.[0-9]+$"
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "mirror"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "deferred"
+          },
+          "openvsx": {
+            "role": "deferred"
+          },
+          "pages": {
+            "role": "mirror"
+          }
+        },
+        "artifacts": [
+          "wheel",
+          "sdist",
+          "vsix",
+          "sha256sums",
+          "sbom"
+        ],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "PyPI is a mirror of GitHub Release bytes. Marketplace/Open VSX deferred."
+      },
+      "enforcementState": "pending",
+      "coverage": "complete",
+      "historicalGaps": [
+        {
+          "tag": "v1.0.0-alpha.1",
+          "status": "accidental-1x",
+          "action": "leave-in-place"
+        }
+      ]
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/specmint-platform",
+        "profile": "mint-platform",
+        "canonical": "github-release",
+        "engine": "release-please",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false,
+          "pattern": "^v0\\.[0-9]+\\.[0-9]+-alpha\\.[0-9]+$"
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "mirror",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "deferred"
+          },
+          "openvsx": {
+            "role": "deferred"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [
+          "wheel",
+          "sdist",
+          "sha256sums",
+          "sbom",
+          "image"
+        ],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "GHCR is a mirror; package visibility is unchanged by this program."
+      },
+      "enforcementState": "pending",
+      "coverage": "complete",
+      "historicalGaps": [
+        {
+          "tag": "v1.0.0-alpha.1",
+          "status": "accidental-1x",
+          "action": "leave-in-place"
+        }
+      ]
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/mint-integration-template",
+        "profile": "mint-integration",
+        "canonical": "github-release",
+        "engine": "release-please",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false,
+          "pattern": "^v0\\.[0-9]+\\.[0-9]+-alpha\\.[0-9]+$"
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "deferred"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "deferred"
+          },
+          "openvsx": {
+            "role": "deferred"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [
+          "notes"
+        ],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Template repo. Integration PyPI deferred."
+      },
+      "enforcementState": "pending",
+      "coverage": "complete"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/mint-integration-local",
+        "profile": "mint-integration",
+        "canonical": "github-release",
+        "engine": "release-please",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false,
+          "pattern": "^v0\\.[0-9]+\\.[0-9]+-alpha\\.[0-9]+$"
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "deferred"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "deferred"
+          },
+          "openvsx": {
+            "role": "deferred"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [
+          "wheel",
+          "sdist",
+          "sha256sums",
+          "sbom"
+        ],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "GitHub Release is canonical. PyPI trusted publisher deferred."
+      },
+      "enforcementState": "pending",
+      "coverage": "complete"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/mint-integration-github",
+        "profile": "mint-integration",
+        "canonical": "github-release",
+        "engine": "release-please",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false,
+          "pattern": "^v0\\.[0-9]+\\.[0-9]+-alpha\\.[0-9]+$"
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "deferred"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "deferred"
+          },
+          "openvsx": {
+            "role": "deferred"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [
+          "wheel",
+          "sdist",
+          "sha256sums",
+          "sbom"
+        ],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "GitHub Release is canonical. PyPI trusted publisher deferred."
+      },
+      "enforcementState": "pending",
+      "coverage": "complete"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/specmint",
+        "profile": "mint-internal",
+        "canonical": "github-release",
+        "engine": "python-semantic-release",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [
+          "notes"
+        ],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Private/internal SpecMint repo. Visibility unchanged."
+      },
+      "enforcementState": "pending",
+      "coverage": "notes"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/repave",
+        "profile": "product",
+        "canonical": "github-release",
+        "engine": "python-semantic-release",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [
+          "notes"
+        ],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "python-semantic-release owns tags. Do not retag."
+      },
+      "enforcementState": "pending",
+      "coverage": "historical-gap",
+      "historicalGaps": [
+        {
+          "tag": "v2.48.0-rc.1",
+          "status": "unproven",
+          "action": "do-not-synthesize"
+        }
+      ]
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/repave-operator",
+        "profile": "product-slice",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "No GitHub Release coverage yet. Do not mint tags from this program."
+      },
+      "enforcementState": "pending",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/repave-cli",
+        "profile": "product-slice",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "No GitHub Release coverage yet. Do not mint tags from this program."
+      },
+      "enforcementState": "pending",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/repave-corpus",
+        "profile": "product-slice",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "No GitHub Release coverage yet. Do not mint tags from this program."
+      },
+      "enforcementState": "pending",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/repave-aws-infra",
+        "profile": "infra",
+        "canonical": "github-release",
+        "engine": "python-semantic-release",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [
+          "notes"
+        ],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Notes-only GitHub Release. No Pulumi apply from release."
+      },
+      "enforcementState": "pending",
+      "coverage": "notes"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/overpass",
+        "profile": "product",
+        "canonical": "github-release",
+        "engine": "python-semantic-release",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "mirror",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [
+          "image"
+        ],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "GHCR image tags are mirrors of GitHub Releases. Production pins SHA/digest."
+      },
+      "enforcementState": "pending",
+      "coverage": "complete"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/toll",
+        "profile": "product",
+        "canonical": "github-release",
+        "engine": "python-semantic-release",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [
+          "notes"
+        ],
+        "provenance": {
+          "synthesize": false
+        }
+      },
+      "enforcementState": "pending",
+      "coverage": "complete"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/dispatch",
+        "profile": "product",
+        "canonical": "github-release",
+        "engine": "python-semantic-release",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [
+          "notes"
+        ],
+        "provenance": {
+          "synthesize": false
+        }
+      },
+      "enforcementState": "pending",
+      "coverage": "complete"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/relay",
+        "profile": "product",
+        "canonical": "github-release",
+        "engine": "python-semantic-release",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [
+          "notes"
+        ],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Internal runtime. Not a public SKU."
+      },
+      "enforcementState": "pending",
+      "coverage": "complete"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/opdevcode-website",
+        "profile": "web",
+        "canonical": "github-release",
+        "engine": "release-please",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "mirror"
+          }
+        },
+        "artifacts": [
+          "notes"
+        ],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Release Please prefixed tags. Netlify deploys from main; not a registry."
+      },
+      "enforcementState": "pending",
+      "coverage": "complete"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/convergence",
+        "profile": "docs",
+        "canonical": "github-release",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [
+          "notes"
+        ],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Research snapshot only. No new manual tags."
+      },
+      "enforcementState": "pending",
+      "coverage": "notes"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/helm-payments-api",
+        "profile": "generated",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Generated/bootstrap repo. Out of the GitHub Release mandate."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/checkov-policy-platform-baseline",
+        "profile": "generated",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Generated/bootstrap repo. Out of the GitHub Release mandate."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/opa-policy-platform-guardrails",
+        "profile": "generated",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Generated/bootstrap repo. Out of the GitHub Release mandate."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/tf-azure-aks",
+        "profile": "generated",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Generated/bootstrap repo. Out of the GitHub Release mandate."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/tfm-azure-eventgrid-test",
+        "profile": "generated",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Generated/bootstrap repo. Out of the GitHub Release mandate."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/azure-policy-test-test",
+        "profile": "generated",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Generated/bootstrap repo. Out of the GitHub Release mandate."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/tf-aws-eks-demo",
+        "profile": "generated",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Generated/bootstrap repo. Out of the GitHub Release mandate."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/tf-aws-eks",
+        "profile": "generated",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Generated/bootstrap repo. Out of the GitHub Release mandate."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/ansible-role-hardening",
+        "profile": "generated",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Generated/bootstrap repo. Out of the GitHub Release mandate."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/ansible-role-webserver",
+        "profile": "generated",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Generated/bootstrap repo. Out of the GitHub Release mandate."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/gitops-dev-payments-api",
+        "profile": "generated",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Generated/bootstrap repo. Out of the GitHub Release mandate."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/tf-azure-networking-demo",
+        "profile": "generated",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Generated/bootstrap repo. Out of the GitHub Release mandate."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/tf-aws-vpc-demo",
+        "profile": "generated",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Generated/bootstrap repo. Out of the GitHub Release mandate."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/cloudopt",
+        "profile": "side-oss",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Side OSS or archived. Not an OpsDevCode product release."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/knode",
+        "profile": "side-oss",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Side OSS or archived. Not an OpsDevCode product release."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/talentlayer",
+        "profile": "side-oss",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Side OSS or archived. Not an OpsDevCode product release."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/terraform-aws-eks-karpenter",
+        "profile": "side-oss",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Side OSS or archived. Not an OpsDevCode product release."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/atx",
+        "profile": "side-oss",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Side OSS or archived. Not an OpsDevCode product release."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/kubesnooze",
+        "profile": "side-oss",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Side OSS or archived. Not an OpsDevCode product release."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/term-dx",
+        "profile": "side-oss",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Side OSS or archived. Not an OpsDevCode product release."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/eks-addons",
+        "profile": "side-oss",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Side OSS or archived. Not an OpsDevCode product release."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/shownodes",
+        "profile": "side-oss",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Side OSS or archived. Not an OpsDevCode product release."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/cursor-rules",
+        "profile": "side-oss",
+        "canonical": "none",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Side OSS or archived. Not an OpsDevCode product release."
+      },
+      "enforcementState": "out-of-scope",
+      "coverage": "none"
+    }
+  ]
+}

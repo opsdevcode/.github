@@ -1,0 +1,26 @@
+{
+  "schema": "opsdevcode.release/v0",
+  "repository": "opsdevcode/.github",
+  "profile": "org-meta",
+  "canonical": "none",
+  "engine": "none",
+  "tagPolicy": {
+    "manualTags": false,
+    "retag": false
+  },
+  "prerelease": {
+    "githubMakeLatest": false
+  },
+  "downstream": {
+    "pypi": { "role": "none" },
+    "ghcr": { "role": "none", "latest": false, "visibilityChange": false },
+    "marketplace": { "role": "none" },
+    "openvsx": { "role": "none" },
+    "pages": { "role": "none" }
+  },
+  "artifacts": [],
+  "provenance": {
+    "synthesize": false
+  },
+  "notes": "Org policy and schema owner. No product GitHub Release."
+}

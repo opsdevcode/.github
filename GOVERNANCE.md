@@ -164,10 +164,20 @@ deploy owner; Relay is not yet the hosted runtime.
 
 ## Immutable release policy
 
-Production uses immutable identity: full git SHA tag and/or digest.
+GitHub Releases are the canonical release record. Downstream registries
+(PyPI, GHCR, Marketplace, Open VSX, Pages) are mirrors or deferred.
+Policy: [`docs/github-releases.md`](docs/github-releases.md).
+Schema: `opsdevcode.release/v0`. Classification: `profiles/releases.json`.
 
-`:latest` may exist for browsing. It must not be the production pin.
-Do not remove current `:latest` publishing in this slice.
+Production uses immutable identity: git tag, full SHA, and/or digest.
+
+- Do not create tags by hand and do not retag
+- Do not synthesize provenance or GitHub Releases for unproven tags
+- Do not mark a prerelease as GitHub `latest`
+- `:latest` must not be the production pin and must not be published for
+  prerelease/alpha images
+- Do not change GHCR visibility from this repository
+- Mint integration PyPI stays deferred; Mint language PyPI is a mirror
 
 ## Drift detection and adoption state
 
@@ -209,7 +219,9 @@ Recorded on `profiles/repos.json`.
 
 ## Reusable workflows
 
-Not in this slice. Later, small callables only.
+- Conventional Commits: `.github/workflows/conventional-commits.yml`
+- Release contract: `.github/workflows/validate-release-contract.yml`
+  (`opsdevcode.release/v0`)
 
 ## Migration strategy
 

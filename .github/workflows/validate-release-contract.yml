@@ -1,0 +1,56 @@
+name: Validate release contract
+
+# Org source of truth for opsdevcode.release/v0.
+# Product repos on default branch:
+#   jobs:
+#     release-check:
+#       uses: opsdevcode/.github/.github/workflows/validate-release-contract.yml@main
+
+on:
+  workflow_call:
+    inputs:
+      contract_path:
+        description: Path to the repository release contract
+        type: string
+        required: false
+        default: opsdevcode-release.json
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  release-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # actions/checkout@v7
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # actions/checkout@v7
+        with:
+          repository: opsdevcode/.github
+          ref: main
+          path: .opsdevcode-github
+        if: github.repository != 'opsdevcode/.github'
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Validate opsdevcode.release/v0 contract
+        env:
+          CONTRACT_PATH: ${{ inputs.contract_path || 'opsdevcode-release.json' }}
+        run: |
+          set -euo pipefail
+          if [ "${GITHUB_REPOSITORY}" = "opsdevcode/.github" ]; then
+            ROOT="."
+          else
+            ROOT=".opsdevcode-github"
+          fi
+          python3 "${ROOT}/scripts/validate_release_contract.py" \
+            --contract "${CONTRACT_PATH}"
+          if [ "${GITHUB_REPOSITORY}" = "opsdevcode/.github" ]; then
+            python3 "${ROOT}/scripts/validate_release_contract.py" \
+              --classification profiles/releases.json
+          fi

@@ -70,6 +70,12 @@ Do not write an ADR for every small change.
 | docs | Convergence | 0 | PR + CI |
 | org-meta | `.github` | 0 | PR + `validate` |
 
+## Release
+
+GitHub Releases are the canonical record. Do not `git tag` or
+`gh release create`. Do not retag. Do not mark a prerelease as `latest`.
+See [docs/github-releases.md](docs/github-releases.md).
+
 ## Merge
 
 Squash only. Merge commits and rebase merges are disabled so one PR is one
@@ -89,4 +95,5 @@ in this org (API 422).
 ## Source of truth
 
 [`GOVERNANCE.md`](GOVERNANCE.md), [`profiles/`](profiles/),
-[`docs/engineering-foundations.md`](docs/engineering-foundations.md).
+[`docs/engineering-foundations.md`](docs/engineering-foundations.md),
+[`docs/github-releases.md`](docs/github-releases.md).
