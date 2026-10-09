@@ -28,6 +28,8 @@ AUDITED_REPOS = frozenset(
         "opsdevcode/mint-integration-template",
         "opsdevcode/mint-integration-local",
         "opsdevcode/mint-integration-github",
+        "opsdevcode/mint-action",
+        "opsdevcode/mint-starter",
         "opsdevcode/specmint",
         "opsdevcode/repave",
         "opsdevcode/repave-operator",
@@ -207,6 +209,10 @@ class ClassificationTests(unittest.TestCase):
             rows["opsdevcode/mint-integration-local"]["contract"]["downstream"]["pypi"]["role"],
             "deferred",
         )
+        self.assertEqual(rows["opsdevcode/mint-action"]["enforcementState"], "pending")
+        self.assertEqual(rows["opsdevcode/mint-action"]["contract"]["engine"], "none")
+        self.assertEqual(rows["opsdevcode/mint-starter"]["enforcementState"], "pending")
+        self.assertEqual(rows["opsdevcode/mint-starter"]["contract"]["profile"], "docs")
 
     def test_repave_historical_gap_is_not_synthesized(self) -> None:
         rows = {row["contract"]["repository"]: row for row in self.data["repos"]}

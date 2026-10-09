@@ -302,6 +302,94 @@
     {
       "contract": {
         "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/mint-action",
+        "profile": "product",
+        "canonical": "github-release",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [
+          "notes"
+        ],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Consumers pin an immutable merge SHA. No action tags, no latest, no @main. Language wheel comes from the specmint-language GitHub Release."
+      },
+      "enforcementState": "pending",
+      "coverage": "notes"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/mint-starter",
+        "profile": "docs",
+        "canonical": "github-release",
+        "engine": "none",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [
+          "notes"
+        ],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Public template. Stays untagged. Pin mint-action by merge SHA 29918519, never @main. Language wheel from GitHub Release, never latest."
+      },
+      "enforcementState": "pending",
+      "coverage": "notes"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
         "repository": "opsdevcode/specmint",
         "profile": "mint-internal",
         "canonical": "github-release",
