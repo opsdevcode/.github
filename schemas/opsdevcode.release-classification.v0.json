@@ -1,0 +1,66 @@
+{
+  "$id": "opsdevcode.release-classification/v0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpsDevCode organization release classification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "organization", "canonicalChannel", "policy", "repos"],
+  "properties": {
+    "schema": {
+      "const": "opsdevcode.release-classification/v0"
+    },
+    "organization": {
+      "const": "opsdevcode"
+    },
+    "canonicalChannel": {
+      "const": "github-release"
+    },
+    "policy": {
+      "const": "docs/github-releases.md"
+    },
+    "repos": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/classifiedRepo" }
+    }
+  },
+  "$defs": {
+    "classifiedRepo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract", "enforcementState", "coverage"],
+      "properties": {
+        "contract": {
+          "$ref": "opsdevcode.release/v0"
+        },
+        "enforcementState": {
+          "type": "string",
+          "enum": ["adopted", "pending", "out-of-scope"]
+        },
+        "coverage": {
+          "type": "string",
+          "enum": ["complete", "notes", "none", "historical-gap"]
+        },
+        "historicalGaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["tag", "status", "action"],
+            "properties": {
+              "tag": { "type": "string", "minLength": 1 },
+              "status": {
+                "type": "string",
+                "enum": ["unproven", "accidental-1x", "leave-in-place"]
+              },
+              "action": {
+                "type": "string",
+                "enum": ["do-not-synthesize", "leave-in-place"]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

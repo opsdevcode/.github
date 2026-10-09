@@ -1,0 +1,147 @@
+{
+  "$id": "opsdevcode.release/v0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpsDevCode repository release contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "repository",
+    "profile",
+    "canonical",
+    "engine",
+    "tagPolicy",
+    "prerelease",
+    "downstream",
+    "artifacts",
+    "provenance"
+  ],
+  "properties": {
+    "schema": {
+      "const": "opsdevcode.release/v0"
+    },
+    "repository": {
+      "type": "string",
+      "pattern": "^opsdevcode/(\\.github|[A-Za-z0-9._-]+)$"
+    },
+    "profile": {
+      "type": "string",
+      "enum": [
+        "mint-language",
+        "mint-platform",
+        "mint-integration",
+        "mint-internal",
+        "product",
+        "product-slice",
+        "infra",
+        "web",
+        "docs",
+        "org-meta",
+        "generated",
+        "side-oss"
+      ]
+    },
+    "canonical": {
+      "type": "string",
+      "enum": ["github-release", "none"]
+    },
+    "engine": {
+      "type": "string",
+      "enum": ["release-please", "python-semantic-release", "none"]
+    },
+    "tagPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["manualTags", "retag"],
+      "properties": {
+        "manualTags": { "const": false },
+        "retag": { "const": false },
+        "pattern": { "type": "string", "minLength": 1 }
+      }
+    },
+    "prerelease": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["githubMakeLatest"],
+      "properties": {
+        "githubMakeLatest": { "const": false }
+      }
+    },
+    "downstream": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pypi", "ghcr", "marketplace", "openvsx", "pages"],
+      "properties": {
+        "pypi": { "$ref": "#/$defs/channel" },
+        "ghcr": { "$ref": "#/$defs/ghcrChannel" },
+        "marketplace": { "$ref": "#/$defs/unpublishedChannel" },
+        "openvsx": { "$ref": "#/$defs/unpublishedChannel" },
+        "pages": { "$ref": "#/$defs/channel" }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "wheel",
+          "sdist",
+          "vsix",
+          "sha256sums",
+          "sbom",
+          "image",
+          "notes"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["synthesize"],
+      "properties": {
+        "synthesize": { "const": false }
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "channel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role"],
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": ["mirror", "deferred", "none"]
+        }
+      }
+    },
+    "unpublishedChannel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role"],
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": ["deferred", "none"]
+        }
+      }
+    },
+    "ghcrChannel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "latest", "visibilityChange"],
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": ["mirror", "deferred", "none"]
+        },
+        "latest": { "const": false },
+        "visibilityChange": { "const": false }
+      }
+    }
+  }
+}

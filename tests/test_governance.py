@@ -225,6 +225,9 @@ class FoundationFilesTests(unittest.TestCase):
             "SECURITY.md",
             "CODEOWNERS",
             "docs/engineering-foundations.md",
+            "docs/github-releases.md",
+            "opsdevcode-release.json",
+            "profiles/releases.json",
         ):
             self.assertTrue((ROOT / rel).is_file(), msg=rel)
 

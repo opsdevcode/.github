@@ -31,19 +31,24 @@ migrate gradually. Required ruleset checks must name jobs that actually exist.
 
 ## Release / versioning
 
-Do not force one release engine.
+GitHub Releases are canonical. Downstream channels are mirrors. Do not force
+one release engine. Org schema: `opsdevcode.release/v0` in
+[`docs/github-releases.md`](github-releases.md).
 
 | Repo | Engine | Production identity |
 | --- | --- | --- |
+| Mint language / platform / integrations | release-please | GitHub Release tag; language PyPI mirrors GitHub bytes; integration PyPI deferred; platform GHCR mirrors the tag (visibility unchanged) |
 | Repave | python-semantic-release | Engine tags; infra pins chart/image SHA |
-| Overpass / Toll / Dispatch / Relay | python-semantic-release | Image/SHA or internal SKU; no second bot |
-| Company site | release-please | Netlify production from `main` |
-| SpecMint language / platform | tag-triggered GitHub Release today | Convert to python-semantic-release later; do not rebuild existing `0.1.0a1` artifacts |
+| Overpass / Toll / Dispatch / Relay | python-semantic-release | GitHub Release plus image/SHA or internal SKU; no second bot |
+| Company site | release-please | GitHub Release; Netlify production from `main` |
 
 Company invariants:
 
 - Production artifacts are immutable
 - Production deployments use full SHA or digest
+- Humans do not `git tag` or `gh release create`
+- Do not retag or synthesize provenance
+- Prereleases are never GitHub `latest`
 - `:latest` is never production source of truth
 - Product repos build, test, publish, and **dispatch**
 - Infra repo **deploys** production
