@@ -347,6 +347,52 @@
     {
       "contract": {
         "schema": "opsdevcode.release/v0",
+        "repository": "opsdevcode/mint-registry",
+        "profile": "mint-registry",
+        "canonical": "github-release",
+        "engine": "release-please",
+        "tagPolicy": {
+          "manualTags": false,
+          "retag": false,
+          "pattern": "^v0\\.[0-9]+\\.[0-9]+-alpha\\.[0-9]+$"
+        },
+        "prerelease": {
+          "githubMakeLatest": false
+        },
+        "downstream": {
+          "pypi": {
+            "role": "none"
+          },
+          "ghcr": {
+            "role": "none",
+            "latest": false,
+            "visibilityChange": false
+          },
+          "marketplace": {
+            "role": "none"
+          },
+          "openvsx": {
+            "role": "none"
+          },
+          "pages": {
+            "role": "none"
+          }
+        },
+        "artifacts": [
+          "notes",
+          "sha256sums"
+        ],
+        "provenance": {
+          "synthesize": false
+        },
+        "notes": "Static JSON catalog snapshots. Release Please owns tags after squash-merge. Pin the GitHub Release tag or commit, never main or latest. No hosted service, no PyPI."
+      },
+      "enforcementState": "pending",
+      "coverage": "notes"
+    },
+    {
+      "contract": {
+        "schema": "opsdevcode.release/v0",
         "repository": "opsdevcode/mint-starter",
         "profile": "docs",
         "canonical": "github-release",

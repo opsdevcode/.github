@@ -29,6 +29,7 @@ AUDITED_REPOS = frozenset(
         "opsdevcode/mint-integration-local",
         "opsdevcode/mint-integration-github",
         "opsdevcode/mint-action",
+        "opsdevcode/mint-registry",
         "opsdevcode/mint-starter",
         "opsdevcode/specmint",
         "opsdevcode/repave",
@@ -182,6 +183,25 @@ class ContractTests(unittest.TestCase):
         errors = release.validate_contract(data)
         self.assertTrue(any("pypi.role" in item and "mirror" in item for item in errors))
 
+    def test_mint_registry_requires_release_please_and_no_pypi(self) -> None:
+        data = _contract(
+            repository="opsdevcode/mint-registry",
+            profile="mint-registry",
+            canonical="github-release",
+            engine="none",
+            artifacts=["notes"],
+            downstream={
+                "pypi": {"role": "mirror"},
+                "ghcr": {"role": "none", "latest": False, "visibilityChange": False},
+                "marketplace": {"role": "none"},
+                "openvsx": {"role": "none"},
+                "pages": {"role": "none"},
+            },
+        )
+        errors = release.validate_contract(data)
+        self.assertTrue(any("release-please" in item for item in errors))
+        self.assertTrue(any("pypi.role" in item and "none" in item for item in errors))
+
 
 class ClassificationTests(unittest.TestCase):
     @classmethod
@@ -214,6 +234,11 @@ class ClassificationTests(unittest.TestCase):
         self.assertFalse(rows["opsdevcode/mint-action"]["contract"]["prerelease"]["githubMakeLatest"])
         self.assertEqual(rows["opsdevcode/mint-starter"]["enforcementState"], "pending")
         self.assertEqual(rows["opsdevcode/mint-starter"]["contract"]["profile"], "docs")
+        self.assertEqual(rows["opsdevcode/mint-registry"]["enforcementState"], "pending")
+        self.assertEqual(rows["opsdevcode/mint-registry"]["contract"]["profile"], "mint-registry")
+        self.assertEqual(rows["opsdevcode/mint-registry"]["contract"]["engine"], "release-please")
+        self.assertEqual(rows["opsdevcode/mint-registry"]["contract"]["downstream"]["pypi"]["role"], "none")
+        self.assertFalse(rows["opsdevcode/mint-registry"]["contract"]["prerelease"]["githubMakeLatest"])
 
     def test_repave_historical_gap_is_not_synthesized(self) -> None:
         rows = {row["contract"]["repository"]: row for row in self.data["repos"]}

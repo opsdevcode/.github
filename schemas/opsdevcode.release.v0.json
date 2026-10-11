@@ -30,6 +30,7 @@
         "mint-language",
         "mint-platform",
         "mint-integration",
+        "mint-registry",
         "mint-internal",
         "product",
         "product-slice",
