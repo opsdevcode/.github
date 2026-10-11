@@ -51,4 +51,5 @@ fabricate customers, metrics, or UI.
 
 - Company repo: `opsdevco.de` and `/products/{slug}` (portfolio context).
 - Product repos: dedicated sites on `{product}.opsdevco.de`.
+- Mint language docs: `mint.opsdevco.de` owned by `opsdevcode/specmint-language` (GitHub Pages). Not a fifth product site. Not the company Netlify host.
 - Waitlist may stay on Repave until a product has its own action.

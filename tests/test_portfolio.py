@@ -64,6 +64,18 @@ class PortfolioContractTests(unittest.TestCase):
         internals = self.data.get("internals") or {}
         self.assertEqual((internals.get("relay") or {}).get("relationship"), "internal-runtime")
 
+    def test_mint_docs_host_is_not_a_fifth_product(self) -> None:
+        self.assertNotIn("mint", self.data["products"])
+        docs_hosts = (self.data.get("public_hosts") or {}).get("language_docs") or []
+        self.assertEqual(len(docs_hosts), 1)
+        row = docs_hosts[0]
+        self.assertEqual(row.get("host"), "https://mint.opsdevco.de")
+        self.assertEqual(row.get("site_owner"), "opsdevcode/specmint-language")
+        self.assertEqual(row.get("provider"), "github-pages")
+        self.assertEqual(row.get("commercial_funnel"), "https://opsdevco.de/products/mint")
+        self.assertIn("Not a fifth SKU", str(row.get("note") or ""))
+        self.assertNotIn("mintlang.dev", (self.data.get("public_hosts") or {}).get("aliases") or [])
+
     def test_product_required_fields_and_unique_urls(self) -> None:
         products = self.data["products"]
         urls: list[str] = []
