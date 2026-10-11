@@ -24,6 +24,7 @@ PROFILES = frozenset(
         "mint-language",
         "mint-platform",
         "mint-integration",
+        "mint-registry",
         "mint-internal",
         "product",
         "product-slice",
@@ -51,6 +52,7 @@ GITHUB_CANONICAL_PROFILES = frozenset(
         "mint-language",
         "mint-platform",
         "mint-integration",
+        "mint-registry",
         "mint-internal",
         "product",
         "infra",
@@ -343,6 +345,35 @@ def _validate_profile_invariants(
                 "set to 'mirror'; GHCR is a GitHub Release mirror, visibility unchanged",
             )
         )
+    if profile == "mint-registry":
+        if engine != "release-please":
+            errors.append(
+                _error(
+                    f"{source}.engine",
+                    "set to 'release-please' for mint-registry snapshots",
+                )
+            )
+        if downstream["pypi"].get("role") != "none":
+            errors.append(
+                _error(
+                    f"{source}.downstream.pypi.role",
+                    "set to 'none'; mint-registry is static JSON, not a PyPI package",
+                )
+            )
+        if downstream["marketplace"].get("role") != "none":
+            errors.append(
+                _error(
+                    f"{source}.downstream.marketplace.role",
+                    "set to 'none'; mint-registry is not a Marketplace product",
+                )
+            )
+        if downstream["openvsx"].get("role") != "none":
+            errors.append(
+                _error(
+                    f"{source}.downstream.openvsx.role",
+                    "set to 'none'; mint-registry is not an editor extension",
+                )
+            )
     if profile in {"mint-language", "mint-platform", "mint-integration"}:
         if engine != "release-please":
             errors.append(

@@ -26,6 +26,8 @@ This file is policy. Schema: [`schemas/opsdevcode.release.v0.json`](../schemas/o
 8. **No `mint apply`.**
 9. **Mint integration PyPI stays deferred.** Mint language PyPI remains a
    mirror of the GitHub Release artifact bytes.
+10. **mint-registry snapshots are GitHub Releases of static JSON.** There is
+    no hosted registry service and no `/releases/latest` pin.
 
 ## Ownership
 

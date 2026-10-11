@@ -38,12 +38,14 @@ python-semantic-release in an adoption PR. Do not add a second tagger.
 | Profile | Engine | Canonical |
 | --- | --- | --- |
 | mint-language / mint-platform / mint-integration | release-please | GitHub Release |
+| mint-registry | release-please | GitHub Release |
 | product / infra / mint-internal | python-semantic-release | GitHub Release |
 | web | release-please | GitHub Release |
 | org-meta / product-slice / generated / side-oss | none | none |
 
 `opsdevcode/mint-action` is profile `product` but uses **release-please**
 (composite action, not Python). `opsdevcode/mint-starter` stays `engine: none`.
+`opsdevcode/mint-registry` is static JSON; Release Please owns snapshot tags.
 Do not add a second tagger.
 
 ## Merge
