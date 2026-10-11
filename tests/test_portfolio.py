@@ -71,7 +71,7 @@ class PortfolioContractTests(unittest.TestCase):
         row = docs_hosts[0]
         self.assertEqual(row.get("host"), "https://mint.opsdevco.de")
         self.assertEqual(row.get("site_owner"), "opsdevcode/specmint-language")
-        self.assertEqual(row.get("provider"), "github-pages")
+        self.assertEqual(row.get("provider"), "eks-ingress")
         self.assertEqual(row.get("commercial_funnel"), "https://opsdevco.de/products/mint")
         self.assertIn("Not a fifth SKU", str(row.get("note") or ""))
         self.assertNotIn("mintlang.dev", (self.data.get("public_hosts") or {}).get("aliases") or [])

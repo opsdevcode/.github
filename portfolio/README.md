@@ -91,11 +91,11 @@ repave.opsdevco.de
 overpass.opsdevco.de
 toll.opsdevco.de
 dispatch.opsdevco.de
-mint.opsdevco.de   # language docs (GitHub Pages); not a fifth product
+mint.opsdevco.de   # language docs (EKS ingress; Pages fallback); not a fifth product
 ```
 
 `repave.dev` → Repave alias.
-`mint.opsdevco.de` → Mint language docs on `opsdevcode/specmint-language` GitHub Pages. Commercial funnel stays `https://opsdevco.de/products/mint`.
+`mint.opsdevco.de` → Mint language docs generated in `opsdevcode/specmint-language`, served on the company EKS ingress like other product hosts. GitHub Pages remains a fallback. Commercial funnel stays `https://opsdevco.de/products/mint`.
 
 This file does **not** assert that sibling hosts are currently healthy.
 Host health is operational evidence, not portfolio metadata.

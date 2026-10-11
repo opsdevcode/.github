@@ -2,64 +2,42 @@
 
 Org record of how Mint language docs are named. This repository does **not**
 contain Pulumi programs, Terraform, or Route53 apply scripts. Live DNS is
-owned by Pulumi in `opsdevcode/repave-aws-infra`. This file does **not**
-authorize `pulumi up`. Do not purchase `mintlang.dev`. Do not use the
-Route53 console.
+owned by Pulumi in `opsdevcode/repave-aws-infra` stack `domains`. This file
+does **not** authorize `pulumi up`. Do not use the Route53 console.
 
 ## HOSTING_DECISION
 
-GitHub Pages from `opsdevcode/specmint-language` (Actions static site).
-Commercial funnel stays `https://opsdevco.de/products/mint` on the company
-Netlify site. Mint is not a fifth SKU.
+Content: static site from `opsdevcode/specmint-language` (`scripts/build_docs_site.py`).
+No second compiler. No Pages reverse proxy.
 
-Fallback until the custom hostname returns anonymous HTTP 200:
-`https://opsdevcode.github.io/specmint-language/`.
+Serving (production pattern, same as overpass/toll/dispatch):
 
-## Pulumi implementation intent (`repave-aws-infra`)
+- Image `ghcr.io/opsdevcode/mint:<git-sha>`
+- Workload `kubernetes/product-surfaces/mint.yaml` in `repave-aws-infra`
+- Ingress-nginx + cert-manager `letsencrypt-prod`
+- Pulumi `PRODUCT_HOSTS` alias to the existing ingress-nginx NLB
 
-Bind to the **existing** public hosted zone `opsdevco.de` (Route53 nameservers
-already `awsdns-*`). Do not create a new zone. Do not ALIAS or A/AAAA this
-name onto CloudFront, Netlify, or a Repave origin.
+GitHub Pages on `specmint-language` stays a **fallback mirror** at
+`https://opsdevcode.github.io/specmint-language/`. Do not enable Pages
+`https_enforced` as production. After NLB cutover, remove the Pages custom
+domain only (`scripts/remove_pages_custom_domain.sh`). Do not disable Pages.
+
+Commercial funnel stays `https://opsdevco.de/products/mint` on Netlify.
+
+## Interim DNS (until ingress+cert exist)
 
 | Field | Value |
 | --- | --- |
-| Stack / repo | Pulumi in `opsdevcode/repave-aws-infra` |
-| Zone | existing public `opsdevco.de` |
-| Record name | `mint` (FQDN `mint.opsdevco.de`) |
-| Type | `CNAME` |
-| TTL | `300` |
-| Target | `opsdevcode.github.io` |
+| URN | `urn:pulumi:domains::repave-aws-infra::repave:aws:CompanyDns$aws:route53/record:Record::rr-cname-mint-opsdevco-de` |
+| Record | `mint.opsdevco.de` CNAME `opsdevcode.github.io` TTL 3600 |
 
-That CNAME is the entire DNS change for this hostname. GitHub Pages
-requires the GitHub Pages hostname as the CNAME target so it can issue
-the custom-domain certificate.
-
-After Pages custom-domain setup, GitHub may display a TXT challenge at
-`_github-pages-challenge-opsdevcode.mint.opsdevco.de`. Add that TXT in
-the same Pulumi zone **only** when GitHub shows the token. Do not invent
-a challenge value.
-
-HTTPS: GitHub Pages already enforces HTTPS on the project site.
-Custom-domain certificates are issued by GitHub after the CNAME answers.
+Keep this CNAME until the Mint workload is applied. Then Pulumi-cutover mint
+onto `PRODUCT_HOSTS` (A/AAAA alias to the NLB). Rollback is Pulumi reverse to
+`opsdevcode.github.io`.
 
 ## What this org repo must not contain
 
 - Pulumi Python/TypeScript/YAML
 - Terraform HCL
 - `pulumi up` / `pulumi preview` wrappers
-- AWS credentials or zone IDs
-
-## OWNER_ACTION_REQUIRED
-
-1. Merge the `specmint-language` Pages PR (CNAME file in the published `site/`).
-2. In `opsdevcode/specmint-language` Settings → Pages: custom domain
-   `mint.opsdevco.de`, wait for DNS check, enable Enforce HTTPS.
-3. In `repave-aws-infra`, add the Pulumi `aws.route53.Record` that matches
-   the table above, then `pulumi up` **only after explicit owner
-   authorization**. This document does not authorize apply.
-4. Do not merge DNS apply from an agent. Do not tag.
-
-## Probe after apply (owner)
-
-Anonymous `GET https://mint.opsdevco.de/` must return HTTP 200 before README
-and company-site links switch off the `github.io` fallback.
+- AWS credentials or invented TXT tokens
