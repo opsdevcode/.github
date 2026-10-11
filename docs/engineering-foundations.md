@@ -62,13 +62,10 @@ Infra (`repave-aws-infra`): cluster, namespaces, runtime manifests, ingress,
 secret plumbing. No product workflow runs broad production Terraform/Pulumi
 against the cluster.
 
-Mint language docs (`mint.opsdevco.de`) are GitHub Pages from
-`specmint-language`, not a Netlify host-header on `opsdevco.de` and not a
-fifth product runtime. Pulumi in `repave-aws-infra` owns one Route53 CNAME
-(`mint` → `opsdevcode.github.io`) on the existing `opsdevco.de` public zone.
-Do not `pulumi up` until an owner authorizes it. This org repository holds
-the architecture record only and must not contain Pulumi programs.
-Record: [`dns-mint-opsdevco-de.md`](dns-mint-opsdevco-de.md).
+Mint language docs (`mint.opsdevco.de`) are the `specmint-language` static
+site on the same EKS ingress/cert-manager/Pulumi path as other product hosts,
+not a Netlify host-header on `opsdevco.de` and not a fifth SKU. GitHub Pages
+is a fallback mirror. Record: [`dns-mint-opsdevco-de.md`](dns-mint-opsdevco-de.md).
 
 Toll and Dispatch identity surfaces are **not** independently deployed
 production runtimes until they satisfy the production-readiness checklist.

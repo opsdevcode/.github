@@ -136,9 +136,10 @@
       {
         "host": "https://mint.opsdevco.de",
         "site_owner": "opsdevcode/specmint-language",
-        "provider": "github-pages",
+        "provider": "eks-ingress",
+        "fallback": "https://opsdevcode.github.io/specmint-language/",
         "commercial_funnel": "https://opsdevco.de/products/mint",
-        "note": "Mint language documentation host. Not a fifth SKU. Do not register mintlang.dev. Do not CNAME this host to the company Netlify origin."
+        "note": "Mint language documentation host. Content from specmint-language. Served like other product hosts (ingress-nginx, cert-manager, Pulumi NLB alias). Not a fifth SKU. Do not CNAME this host to the company Netlify origin."
       }
     ],
     "aliases": [

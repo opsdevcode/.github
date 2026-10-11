@@ -90,7 +90,7 @@
         "provenance": {
           "synthesize": false
         },
-        "notes": "PyPI is a mirror of GitHub Release bytes. Marketplace/Open VSX deferred. Pages mirror is GitHub Pages on this repo; intended custom domain mint.opsdevco.de after owner DNS. Not a second compiler or analytics stack."
+        "notes": "PyPI is a mirror of GitHub Release bytes. Marketplace/Open VSX deferred. Pages is a fallback mirror. Canonical mint.opsdevco.de is EKS ingress from this repo's static generator. Not a second compiler or analytics stack."
       },
       "enforcementState": "pending",
       "coverage": "complete",
