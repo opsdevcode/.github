@@ -78,4 +78,15 @@ Most of the platform is private. This is the public face.
       Shared Cursor rules used across opsdevcode repos.
     </td>
   </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3><a href="https://github.com/opsdevcode/mint-registry">mint-registry</a></h3>
+      Static JSON catalog for Mint integrations. GitHub Release pins only.
+      Not a hosted service.
+    </td>
+    <td width="50%" valign="top">
+      <h3><a href="https://github.com/opsdevcode/mint-starter">mint-starter</a></h3>
+      Fifteen-minute Mint template. Plan-only. No mint apply.
+    </td>
+  </tr>
 </table>
