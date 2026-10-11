@@ -17,6 +17,8 @@
   &nbsp;·&nbsp;
   <a href="https://repave.opsdevco.de">Repave</a>
   &nbsp;·&nbsp;
+  <a href="https://mint.opsdevco.de">Mint</a>
+  &nbsp;·&nbsp;
   <a href="https://github.com/opsdevcode/convergence">Convergence</a>
   &nbsp;·&nbsp;
   <a href="https://github.com/opsdevcode">Repositories</a>
@@ -42,6 +44,18 @@
     </td>
   </tr>
 </table>
+
+### Mint
+
+Mint is the public language (CLI, editor, Integration Protocol). It is not a
+fifth OpsDevCode product and is not production-ready. There is no `mint apply`.
+
+- Canonical language site (forthcoming hostname): <a href="https://mint.opsdevco.de">mint.opsdevco.de</a>
+- Commercial overview: <a href="https://opsdevco.de/products/mint">opsdevco.de/products/mint</a>
+- Install from <a href="https://github.com/opsdevcode/specmint-language/releases">GitHub Releases</a> on
+  <a href="https://github.com/opsdevcode/specmint-language">specmint-language</a>.
+  PyPI is a mirror of those artifact bytes, not the record of truth.
+  Pin a release tag. Do not use <code>/releases/latest</code> — current tags are prereleases.
 
 ### Public work
 
@@ -80,9 +94,21 @@ Most of the platform is private. This is the public face.
   </tr>
   <tr>
     <td width="50%" valign="top">
+      <h3><a href="https://github.com/opsdevcode/specmint-language">specmint-language</a></h3>
+      Mint language, CLI, and editor. GitHub Releases are canonical;
+      PyPI mirrors those bytes. Pin a tag, not <code>/releases/latest</code>.
+    </td>
+    <td width="50%" valign="top">
+      <h3><a href="https://github.com/opsdevcode/mint-action">mint-action</a></h3>
+      Composite GitHub Action for Mint CI. Pin an immutable merge SHA.
+      Never <code>@main</code>, <code>@latest</code>, or a floating major.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
       <h3><a href="https://github.com/opsdevcode/mint-registry">mint-registry</a></h3>
       Static JSON catalog for Mint integrations. GitHub Release pins only.
-      Not a hosted service.
+      Not a hosted service. Do not pin <code>/releases/latest</code>.
     </td>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/opsdevcode/mint-starter">mint-starter</a></h3>
