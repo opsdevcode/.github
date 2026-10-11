@@ -132,6 +132,15 @@
       "https://toll.opsdevco.de",
       "https://dispatch.opsdevco.de"
     ],
+    "language_docs": [
+      {
+        "host": "https://mint.opsdevco.de",
+        "site_owner": "opsdevcode/specmint-language",
+        "provider": "github-pages",
+        "commercial_funnel": "https://opsdevco.de/products/mint",
+        "note": "Mint language documentation host. Not a fifth SKU. Do not register mintlang.dev. Do not CNAME this host to the company Netlify origin."
+      }
+    ],
     "aliases": [
       {
         "host": "https://repave.dev",
